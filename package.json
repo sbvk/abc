@@ -3,27 +3,31 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.html",
+  
   "dependencies": {
     "bootstrap": "^4.0.0",
     "bootstrap-social": "^5.1.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.5.1",
-    "lite-server": "^2.5.4",
     "node-sass": "^4.14.1",
     "popper.js": "^1.16.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "lite-server": "^2.5.4"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run lite",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lite": "lite-server"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sbvk/abc.git"
+    "url": "git+https://github.com/sbvk/vk.git"
   },
   "author": "sbvk",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sbvk/abc/issues"
+    "url": "https://github.com/sbvk/vk/issues"
   },
-  "homepage": "https://github.com/sbvk/abc#readme"
+  "homepage": "https://github.com/sbvk/vk#readme"
 }
