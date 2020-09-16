@@ -1,10 +1,10 @@
 {
   "name": "website",
   "version": "1.0.0",
-  "description": "this is a test",
+  "description": "",
   "main": "index.html",
   "dependencies": {
-    "bootstrap": "^4.5.2",
+    "bootstrap": "^4.0.0",
     "bootstrap-social": "^5.1.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.5.1",
@@ -18,12 +18,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sbvk/website.git"
+    "url": "git+https://github.com/sbvk/web1.git"
   },
   "author": "sbvk",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sbvk/website/issues"
+    "url": "https://github.com/sbvk/web1/issues"
   },
-  "homepage": "https://github.com/sbvk/website#readme"
+  "homepage": "https://github.com/sbvk/web1#readme"
 }
