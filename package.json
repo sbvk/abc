@@ -18,12 +18,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sbvk/web1.git"
+    "url": "git+https://github.com/sbvk/abc.git"
   },
   "author": "sbvk",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sbvk/web1/issues"
+    "url": "https://github.com/sbvk/abc/issues"
   },
-  "homepage": "https://github.com/sbvk/web1#readme"
+  "homepage": "https://github.com/sbvk/abc#readme"
 }
