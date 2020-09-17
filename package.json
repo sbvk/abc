@@ -1,9 +1,7 @@
 {
-  "name": "website",
+  "name": "web1",
   "version": "1.0.0",
-  "description": "",
   "main": "index.html",
-  
   "dependencies": {
     "bootstrap": "^4.0.0",
     "bootstrap-social": "^5.1.1",
@@ -29,5 +27,6 @@
   "bugs": {
     "url": "https://github.com/sbvk/vk/issues"
   },
-  "homepage": "https://github.com/sbvk/vk#readme"
+  "homepage": "https://github.com/sbvk/vk#readme",
+  "description": ""
 }
