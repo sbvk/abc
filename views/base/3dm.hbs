@@ -1,0 +1,99 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bootstrap-social/bootstrap-social.css">
+    
+</head>
+
+<body>
+<nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+<div class="container">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">  
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#"> <img src="img/logo.png" height="30" width="41"></a>
+    <div class="collapse navbar-collapse" id="Navbar">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html" ><span class="fa fa-home fa-lg"></span> Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="aboutus.html" ><span class="fa fa-info fa-lg"></span> About Us</a></li>
+        <li class="nav-item active"><a class="nav-link" href="#" ><span class="fa fa-list fa-lg"></span> 3D Models</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" ><span class="fa fa-list fa-lg"></span> Premium Models</a></li> 
+        <li class="nav-item"><a class="nav-link" href="contactus.html" ><span class="fa fa-address-card fa-lg"></span> Contact Us</a></li>
+    </ul>
+    <span class="navbar-text">
+        <a id="loginid">
+        <span class="fa fa-sign-in"></span> Login</a>
+    <a>&nbsp;</a>
+        <a href="/employee" action="">
+        <span class="fa fa-"></span> Signup</a>
+    </span>
+</div>
+</div>
+</nav>
+<div class="container"> <table> 
+    abc <br>  
+  
+     
+
+           
+{{#each pictures}}  
+{{#each this}}
+            <tr>
+            <td>{{this._id}}</td>
+           <td> {{this.name}}</td>
+           <td> {{this.desc}}</td>
+           <td>{{this.img}}</td>
+           
+           <td> </td>
+           
+            </tr>
+            {{/each}}
+             {{/each}} </table>
+             <table> <tr> <td>
+   <div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="./abc.jpeg">
+      <img src="./abc.jpeg" width="600" height="400">
+    </a>
+    <div class="desc">Add a description of the image here</div>
+  </div>
+</div> </td>
+
+
+<div class="responsive"> <td>
+  <div class="gallery">
+    <a target="_blank" href="img_forest.jpg">
+      <img src="img_forest.jpg" alt="Forest" width="600" height="400">
+    </a>
+    <div class="desc">Add a description of the image here</div>
+  </div>
+</div> </td>
+
+<div class="responsive"><td>
+  <div class="gallery">
+    <a target="_blank" href="img_lights.jpg">
+      <img src="img_lights.jpg" alt="Northern Lights" width="100" height="100">
+    </a>
+    <div class="desc">Add a description of the image here</div>
+  </div>
+</div> </td>
+
+<div class="responsive"><td>
+  <div class="gallery">
+    <a target="_blank" href="img_mountains.jpg">
+      <img src="img_mountains.jpg" alt="Mountains" width="600" height="400">
+    </a>
+    <div class="desc">Add a description of the image here</div>
+  </div>
+</div></td> </tr>
+</table>
+</body>
+</html>

@@ -9,14 +9,14 @@
   min-height: 400px; }
 
 .footer {
-  background-color: #D1C4E9;
+  background-color:#000080;
   margin: 0px auto;
   padding: 20px 0px; }
 
 .jumbotron {
   margin: 0px auto;
   padding: 70px 30px;
-  background: #CC99FF;
+  background:#3366ff;
   color: floralwhite; }
 
 address {
@@ -26,16 +26,18 @@ address {
 
 body {
   padding: 50px 0px 0px 0px;
+  background-color: #ccd9ff;
   z-index: 0; }
 
 .navbar-dark {
-  background-color: #512DA8; }
+  background-color: #002699;
+}
 
 .modal-body {
-  background-color: #D1C4E9; }
+  background-color:#ccd9ff;}
 
 .modal-header {
-  background-color: #512DA8; }
+  background-color: #002699; }
   .modal-header .close {
     color: floralwhite; }
 
@@ -47,7 +49,10 @@ body {
   border-right: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   padding: 10px; }
-
+.word {
+  color: floralwhite;
+  
+}
 .carousel {
   background: #512DA8; }
   .carousel .carousel-item {
@@ -63,3 +68,93 @@ body {
   position: absolute;
   bottom: 0px;
   z-index: 1; }
+
+  #mySidenav a {
+    position: absolute; /* Position them relative to the browser window */
+    right: -40px; /* Position them outside of the screen */
+    transition: 0.3s; /* Add transition on hover */
+    padding: 15px; /* 15px padding */
+    width: 90px; /* Set a specific width */
+    text-decoration: none; /* Remove underline */
+    font-size: 20px; /* Increase font size */
+    color: white; /* White text color */
+    border-radius: 50px 0px 0px 50px; /* Rounded corners on the top right and bottom right side */
+    display: flex;
+    flex-direction: column;
+    text-align:left;
+    margin: 2px;
+    
+  }
+  #mySidenav a i{
+    margin-right:25px;
+    
+    text-align: center;
+    
+    padding-right: 40px;   
+  }
+  #mySidenav a:hover {
+    right: 0; /* On mouse-over, make the elements appear as they should */
+  }
+  
+  /* The about link: 20px from the top with a green background */
+  #google {
+    top: 140px;
+    
+  }
+  
+  #fb {
+    top: 200px;
+     /* Blue */
+  }
+  
+  #lin {
+    top: 260px;
+     /* Red */
+  }
+  #ins {
+    top: 320px;
+    /* Light Black */background-color: #8c6dc5
+  }
+  #twi {
+    top: 380px;
+    /* Light Black */
+  }
+  #you {
+    top: 440px;
+    /* Light Black */
+  }
+  #mail {
+    top: 500px;
+    background-color: #555/* Light Black */
+  }
+
+  div.gallery {
+    border: 4px solid #ccc;
+    width: 30%;
+    height:30%;
+    padding: 2%;
+  }
+  
+  div.gallery:hover {
+    border: 1px solid #777;
+  }
+  
+  div.gallery img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  div.desc {
+    padding: 1px;
+    text-align: center;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  
+  
+  .clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
