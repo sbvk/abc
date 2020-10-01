@@ -2,8 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-<a name="3.6.2"></a>
-## [3.6.2](https://github.com/mongodb/node-mongodb-native/compare/v3.6.1...v3.6.2) (2020-09-10)
+<a name="4.0.3"></a>
+## [4.0.3](https://github.com/mongodb/node-mongodb-native/compare/v3.6.1...v4.0.3) (2020-09-10)
 
 
 ### Bug Fixes

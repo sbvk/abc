@@ -1,6 +1,6 @@
 5.10.5 / 2020-09-11
 ===================
- * fix: bump mongodb -> 3.6.2 #9411 [AbdelrahmanHafez](https://github.com/AbdelrahmanHafez)
+ * fix: bump mongodb -> 4.0.3 #9411 [AbdelrahmanHafez](https://github.com/AbdelrahmanHafez)
  * fix(query+aggregate+cursor): support async iteration over a cursor instance as opposed to a Query or Aggregate instance #9403
  * fix(document): respect child schema `minimize` if `toObject()` is called without an explicit `minimize` #9405
  * docs(guide): use const instead of var #9394 [nainardev](https://github.com/nainardev)
@@ -4244,7 +4244,7 @@
   * website; server.js -> static.js #1546 [nikmartin](https://github.com/nikmartin)
   * examples; improved and expanded [ebensing](https://github.com/ebensing)
 
-3.6.20 (stable) / 2013-09-23
+4.0.30 (stable) / 2013-09-23
 ===================
 
  * fixed; repopulating modified populated paths #1697
@@ -4424,7 +4424,7 @@
   * website; display "see" links for properties
   * website; clean up homepage
 
-3.6.2 / 2013-03-29
+4.0.3 / 2013-03-29
 ==================
 
   * fixed; corrupted sub-doc array #1408
