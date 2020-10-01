@@ -12,6 +12,8 @@ const base64Controller=require('./controllers/base64Controller');
 const listController=require('./controllers/listController');
 const userloginController=require('./controllers/userloginController');
 const adminController=require('./controllers/adminController');
+const contactusController=require('./controllers/contactusController');
+const contactlistController=require('./controllers/contactlistController');
 const fs = require('fs');
 const bcrypt=require('bcryptjs');
 const { ppid } = require('process');
@@ -119,6 +121,9 @@ app.use('/base',base64Controller);
 app.use('/list',listController);
 app.use('/login',userloginController);
 app.use('/admin',adminController);
+app.use('/con',contactusController);
+app.use('/conlist',contactlistController);
+
 app.use('/ind',require('./routes/index'));
 app.use('/auth',require('./routes/auth'));
 app.use('/ind1',require('./routes/index1'));

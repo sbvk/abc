@@ -5,3 +5,5 @@ mongoose.connect('mongodb://localhost:27017/CustomerDB',{useNewUrlParser:true},(
 });
 require('./employee.model');
 require('./photo.model');
+require('./admin.model');
+require('./contactus.model');
