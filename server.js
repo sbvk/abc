@@ -51,7 +51,7 @@ app.set('views', path.join(__dirname,'/views/'));
 app.engine('hbs',exphbs({extname:'hbs',defaultLayout:'mainLayout',layoutsDir:__dirname+'/views/layouts/'}));
 app.set('view engine','hbs');
 
-app.listen(3000,()=>{
+app.listen(process.env.PORT || 3000,function(){
     console.log('express server started at port:3000');
 });
 
