@@ -10,7 +10,7 @@
 </div>
 
 </nav>
-<div class="container">
+<div class="container">      
 <table class="table table-striped">
     <thead>
         <tr>
@@ -22,16 +22,22 @@
             <th> Password </th>
         </tr>
     </thead>
-        <tbody>
-            
+        <tbody> <tr>
+           {{#each list}}
+           {{#each this}}
+            <td>{{this._id}}</td>
+        <td>{{this.firstname}}</td> 
+         <td> {{this.lastname}}</td>    
+         <td> {{this.contact}}</td> 
+         <td> {{this.email}}</td>
+         <td> {{this.password}}</td>
+       </tr>
+            {{/each}}
+            {{/each}}
           <!--{{list}}-->
-          {{#each list}}
-      {{#each this}}
-      
-      
          
-{{/each}}{{/each}}
     </tbody>
     
 </table>
 
+ 

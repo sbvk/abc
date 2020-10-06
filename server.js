@@ -89,7 +89,7 @@ app.post('/uploadfile', upload.single('image'), (req, res, next) => {
         desc: req.body.desc, 
         img: { 
             data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)), 
-            contentType: 'image/png'
+            contentType: 'image/fbx'
         } 
     } 
     imgModel.create(obj, (err, item) => { 
