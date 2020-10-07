@@ -101,6 +101,7 @@ app.post('/uploadfile', upload.single('image'), (req, res, next) => {
         } 
         else { 
             // item.save(); 
+            
             res.redirect('/upl'); 
         } 
     }); 
