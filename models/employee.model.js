@@ -16,6 +16,9 @@ var employeeSchema=new mongoose.Schema({
     password:{
         type:String
     },
+    date:{
+        type:String
+    }
 }
 );
 mongoose.model('Customer',employeeSchema);

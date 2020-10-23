@@ -6,8 +6,12 @@ var photoSchema = new mongoose.Schema({
   img:
   {
       data:Buffer,
-      contentType:String
-  }
+      contentType:String,
+      base:Buffer
+  },
+
+  date: String,
+ 
   });
 
 module.exports = mongoose.model('Image', photoSchema);

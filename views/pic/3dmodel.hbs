@@ -54,19 +54,13 @@
             
             <hr> 
             
-    <h1>Uploaded Images</h1> 
-   <!-- {{#each items}}
-    {{#each this}}
-    <img src="data:image/{{image.img.contentType}}; base64, {{image.img.data}}.toString('base64')"> 
-                
-                    {{ image.name }} 
-                    {{ image.desc }} 
-                    {{ image.data }}
-                  
-
-
-                     {{/each}} {{/each}}-->
-                     <img src="data:img/fbx;base64,{{img}}" style="height: 200; width:230;">
+    <h1>Uploaded Image</h1> 
+                    
+    {{#if item}}
+    <img src="data:img/fbx;base64,{{item}}" height="180" width="250">
+    <li>Name: {{name}}</li>
+    <li>Caption: {{desc}}</li>
+    {{/if}}
        
      
     <script src="C:/Users/Admin/web1/jquery/dist/jquery.slim.min.js"></script>

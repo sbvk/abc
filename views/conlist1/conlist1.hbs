@@ -4,8 +4,8 @@
             <h1 class="word"> Contact Us List</h1></div>
             <div class="col-2 col-sm-2">
              <a href="/ind1/dashboard1" class="btn btn-primary">Back</a></div> </nav>
-<div class="container">  
-    <div class="row row-content">   
+<div>  
+    <div class="row row-content">   <div class="col-5 col-sm-12">
 <table class="table table-striped">
     <thead>
         <tr>
@@ -15,23 +15,23 @@
             <th> Contact </th>
             <th> Email </th>
             <th> Message </th>
+             <th> Timestamp </th>
         </tr>
     </thead>
-        <tbody> <tr>
-           {{#each list}}
-           {{#each this}}
-            <td>{{this._id}}</td>
-        <td>{{this.firstname}}</td> 
-         <td> {{this.lastname}}</td>    
-         <td> {{this.contact}}</td> 
-         <td> {{this.email}}</td>
-         <td> {{this.message}}</td>
-       </tr>
-            {{/each}}
-            {{/each}}
-          <!--{{list}}-->
-         
+        <tbody>  {{#each thumb}} 
+
+            <tr> 
+                <td> {{#each this}}{{this._id}}{{/each}} </td> 
+           <td> {{#each this}}{{this.firstname}}{{/each}} </td> 
+             <td> {{#each this}}{{this.lastname}}{{/each}} </td> 
+               <td> {{#each this}}{{this.contact}}{{/each}} </td> 
+               <td> {{#each this}}{{this.email}}{{/each}} </td> 
+               <td> {{#each this}}{{this.message}}{{/each}} </td> 
+                <td> {{#each this}}{{this.date}}{{/each}} </td> 
+            </tr> 
+             {{/each}}
+          
     </tbody>
     
-</table></div>
+</table></div></div>
 </body>

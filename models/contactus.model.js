@@ -16,6 +16,9 @@ var contactSchema=new mongoose.Schema({
     message:{
         type:String
     },
+    date:{
+        type:String
+    }
 }
 );
 mongoose.model('Contactus',contactSchema);

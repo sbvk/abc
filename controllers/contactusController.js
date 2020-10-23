@@ -16,7 +16,7 @@ router.post('/',(req,res)=>{
 
 function insertRecord1(req,res,err){
     var con=new Contactus();
-    
+    con.date=new Date();
     con.firstname=req.body.firstname;
     con.lastname=req.body.lastname;
     con.contact=req.body.contact;

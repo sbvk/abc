@@ -18,7 +18,7 @@ router.post('/',(req,res)=>{
 
 function insertRecord(req,res){
     var employee=new Customer();
-    
+    employee.date=new Date();
     employee.firstname=req.body.firstname;
     employee.lastname=req.body.lastname;
     employee.contact=req.body.contact;

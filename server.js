@@ -73,13 +73,23 @@ var upload=multer( {
 });
 var imgModel = require('./models/photo.model');
 const { data } = require('jquery');
+const { timeStamp } = require('console');
+const mongoose=require('mongoose');
+const Image=mongoose.model('Image');
 app.get('/upl', (req, res) => { 
-    imgModel.find({}, (err, items) => { 
+    Image.find({}, (err, items) => { 
         if (err) { 
             console.log(err); 
         } 
-        else { 
-            res.render('pic/3dmodel', { items: items }); 
+        else {  
+           
+            for (var result of items) {
+              var thumb=result.img.data.toString('base64');
+            var name=result.name;
+            var desc=result.desc;
+            }
+            res.render('pic/3dmodel', { item: thumb, name:name, desc:desc }); 
+            
         } 
     }); 
 });
@@ -92,8 +102,11 @@ app.post('/uploadfile', upload.single('image'), (req, res, next) => {
         desc: req.body.desc, 
         img: { 
             data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)), 
-            contentType: 'image/fbx'
-        } 
+            contentType: 'image/fbx',
+            base: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)).toString('base64')
+        },
+        date: new Date(),
+        
     } 
     imgModel.create(obj, (err, item) => { 
         if (err) { 
