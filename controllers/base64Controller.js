@@ -21,6 +21,7 @@ router.get('/',(_req,res)=>{ var mysort = { date: -1 };
         }
         res.render('base/3dm', {
             thumb
+            
             //cap: cap
            
         })
