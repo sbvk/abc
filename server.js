@@ -23,13 +23,17 @@ const { ppid } = require('process');
 const passport= require('passport');
 const flash=require('connect-flash');
 const session=require('express-session');
+const mongoose=require('mongoose');
+var MongoStore=require('connect-mongo')(session);
 var app=express();
 require('./config/passport')(passport);
 
 app.use(session({
     secret: 'secret',
     resave:true,
-    saveUninitialized:true
+    saveUninitialized:true,
+    store:new MongoStore({mongooseConnection:mongoose.connection}),
+    cookie:{maxAge:180*60*1000}
 }))
 
 app.use(passport.initialize());
@@ -74,7 +78,7 @@ var upload=multer( {
 var imgModel = require('./models/photo.model');
 const { data } = require('jquery');
 const { timeStamp } = require('console');
-const mongoose=require('mongoose');
+
 const Image=mongoose.model('Image');
 app.get('/upl', (req, res) => { 
     Image.find({}, (err, items) => { 
