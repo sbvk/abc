@@ -89,7 +89,7 @@
      <h5 class="card-title" style="width: 100%; height:10%; overflow-y: auto; ">{{#each this}}{{this.name}}{{/each}}</h5> 
      
      {{#each this}}{{this.desc}}{{/each}}
-     <span class="badge badge-dark" style="margin-left:70%;">Price</span> <br> <br>
+     <span class="badge badge-dark" style="margin-left:70%;">Rs.{{#each this}}{{this.price}}{{/each}}/-</span> <br> <br>
       <p><a href="#" class="btn btn-info btn-sm" style="width: 50%;">
           <i class="fa fa-shopping-cart"></i> Add to Cart</a> 
           <a href="#" class="btn btn-info btn-sm" style="width: 40%;"><i class="fa fa-heart" style="color: red;"></i>&nbsp;Wishlist</a></p>  

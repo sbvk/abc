@@ -87,8 +87,9 @@ app.get('/upl', (req, res) => {
               var thumb=result.img.data.toString('base64');
             var name=result.name;
             var desc=result.desc;
+            var price=result.price;
             }
-            res.render('pic/3dmodel', { item: thumb, name:name, desc:desc }); 
+            res.render('pic/3dmodel', { item: thumb, name:name, desc:desc, price:price }); 
             
         } 
     }); 
@@ -100,6 +101,7 @@ app.post('/uploadfile', upload.single('image'), (req, res, next) => {
     var obj = { 
         name: req.body.name, 
         desc: req.body.desc, 
+        price: req.body.price,
         img: { 
             data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)), 
             contentType: 'image/fbx',

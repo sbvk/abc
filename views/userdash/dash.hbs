@@ -13,12 +13,34 @@
     </head>
     <body>
         <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
-        <div class="col-8 col-sm-7" style="text-align: center;">
-            <h1 class="word"> User Page</h1></div>
-            <div class="col-2 col-sm-3"> 
+
+            <div class="container">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">  
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">  <!--<img src="img/logo.png" height="30" width="41">--></a>
+    <div class="collapse navbar-collapse" id="Navbar">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html" ><span class="fa fa-home fa-lg"></span> Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="aboutus.html" ><span class="fa fa-info fa-lg"></span> About Us</a></li>
+        <li class="nav-item active"><a class="nav-link" href="/base" ><span class="fa fa-list fa-lg"></span> 3D Models</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" ><span class="fa fa-list fa-lg"></span> Premium Models</a></li> 
+        <li class="nav-item"><a class="nav-link" href="/con" ><span class="fa fa-address-card fa-lg"></span> Contact Us</a></li>
+    </ul>
+     <div class="col-2 col-sm-3"> 
                 <div style="color: white;"> {{name}}&nbsp;{{lname}}</div> </div> <div class="col-2 col-sm-2"> 
                
-                <a href="/auth/logout" class="btn btn-primary">Logout</a></div> </nav>
+                <a href="/auth/logout" class="btn btn-primary">Logout</a></div> 
+    
+</div>
+</div></nav>
+
+
+
+       <!-- <div class="col-8 col-sm-7" style="text-align: center;">
+            <h1 class="word"> User Page</h1></div> -->
+            
+          
             <div class="container"> 
                 <div class="row row-content">
 welcome
@@ -28,6 +50,7 @@ welcome
 
 <a href="#" class="btn btn-secondary">Change Password</a>
 <a href="#" class="btn btn-secondary">Wishlist</a>
+<a href="/base" class="btn btn-secondary">Shop</a>
 <a href="#" class="btn btn-secondary">My Orders</a></div>
 </body>
 </html>
