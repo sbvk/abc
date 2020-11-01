@@ -28,13 +28,15 @@
         <li class="nav-item"><a class="nav-link" href="#" ><span class="fa fa-list fa-lg"></span> Premium Models</a></li> 
         <li class="nav-item"><a class="nav-link" href="/con" ><span class="fa fa-address-card fa-lg"></span> Contact Us</a></li>
     </ul>
+    <div class="col-2 col-sm-2"> 
+                <a href="/base" class="btn btn-primary">Back</a></div> 
     </div>
 </div>
 </nav>
 <div class="container"> 
             <div class="row row-content">
 {{#if products}}
-<table>
+<table class="table table-striped">
     <thead>
         <tr>
         
@@ -52,18 +54,25 @@
  <td>{{this.qty}}</td>
 <!-- <td><img src="data:img/fbx;base64,{{this.item.img.base}}"  height="100" width="100"></td>-->
  <td>{{this.price}}</td>
+ <td><form method="post" action="/icart/reduce/{{this.item._id}}">
+<button class="btn btn-danger" type="submit">Remove 1 Item</button></form>
+<form method="post" action="/icart/remove/{{this.item._id}}">
+<button class="btn btn-danger" type="submit">Remove all</button></form></td>
 </tr>{{/each}}</tbody>
 </table><br>
 <ul>
 <li>Total: {{totalPrice}}</li><br>
 <li>Total Quantity: {{totalQty}}</li></ul><br>
-
+</div> <div class="btn-group">
 <form method="post" action="/icart/checkout">
 <button class="btn btn-success" type="submit">Checkout</button></form>
+<form method="post" action="">&nbsp;
+<button class="btn btn-warning" type="submit">Empty Cart</button></form>
+</div>
 {{else}}
 No items in cart
 {{/if}}
-</div>
+
  </div>
 <script src="jquery/dist/jquery.slim.min.js"></script>
     <script src="popper.js/dist/umd/popper.min.js"></script>

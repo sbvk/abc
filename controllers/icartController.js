@@ -50,4 +50,20 @@ router.post('/checkout', function(req,res,next){
 
 });
 
+router.post('/reduce/:_id',function(req,res,next){
+    var pid=req.params._id;
+     var cart=new Cart(req.session.cart ? req.session.cart: {} );
+    cart.reducebyOne(pid);
+    req.session.cart=cart;
+    res.redirect('/icart');
+ });
+ router.post('/remove/:_id',function(req,res,next){
+    var pid=req.params._id;
+     var cart=new Cart(req.session.cart ? req.session.cart: {} );
+    cart.removeAll(pid);
+    req.session.cart=cart;
+    res.redirect('/icart');
+ });
+
+
 module.exports=router;
