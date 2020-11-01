@@ -7,3 +7,4 @@ require('./employee.model');
 require('./photo.model');
 require('./admin.model');
 require('./contactus.model');
+require('./order.model');

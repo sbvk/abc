@@ -14,6 +14,8 @@ const userloginController=require('./controllers/userloginController');
 const adminController=require('./controllers/adminController');
 const contactusController=require('./controllers/contactusController');
 const contactlistController=require('./controllers/contactlistController');
+const cartController=require('./controllers/cartController');
+const icartController=require('./controllers/icartController');
 const ind=require('./controllers/index');
 const ind1=require('./controllers/index1');
 const auth=require('./controllers/auth');
@@ -25,13 +27,14 @@ const flash=require('connect-flash');
 const session=require('express-session');
 const mongoose=require('mongoose');
 var MongoStore=require('connect-mongo')(session);
+var cookieParser = require('cookie-parser');
 var app=express();
 require('./config/passport')(passport);
-
+app.use(cookieParser());
 app.use(session({
     secret: 'secret',
-    resave:true,
-    saveUninitialized:true,
+    resave:false,
+    saveUninitialized:false,
     store:new MongoStore({mongooseConnection:mongoose.connection}),
     cookie:{maxAge:180*60*1000}
 }))
@@ -45,6 +48,8 @@ app.use(function(req,res,next){
 res.locals.success_msg=req.flash('success_msg');
 res.locals.error=req.flash('error_msg');
 res.locals.error=req.flash('error');
+res.locals.login=req.isAuthenticated();
+res.locals.session=req.session;
 next();
 });
 
@@ -146,7 +151,8 @@ app.use('/login',userloginController);
 app.use('/admin',adminController);
 app.use('/con',contactusController);
 app.use('/conlist',contactlistController);
-
+app.use('/cart',cartController);
+app.use('/icart',icartController);
 app.use('/ind',ind);
 app.use('/auth',auth);
 app.use('/ind1',ind1);

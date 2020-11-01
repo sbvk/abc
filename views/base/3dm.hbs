@@ -29,12 +29,16 @@
         <li class="nav-item"><a class="nav-link" href="/con" ><span class="fa fa-address-card fa-lg"></span> Contact Us</a></li>
     </ul>
     <span class="navbar-text">
-        <a id="loginid">
+        <a href="/icart">Cart<span class="badge">{{session.cart.totalQty}} </span></a>
+    <a>&nbsp;</a>
+        <a href="#" id="loginid">
         <span class="fa fa-sign-in"></span> Login</a>
     <a>&nbsp;</a>
         <a href="/employee" action="">
         <span class="fa fa-"></span> Signup</a>
     </span>
+
+   
     
 </div>
 </div>
@@ -89,7 +93,7 @@
      
      {{#each this}}{{this.desc}}{{/each}}
      <span class="badge badge-dark" style="margin-left:70%;">Rs.{{#each this}}{{this.price}}{{/each}}/-</span> <br> <br>
-      <p><a href="#" class="btn btn-info btn-sm" style="width: 50%;">
+      <p><a {{#each this}}href="/cart/{{this._id}}"{{/each}} class="btn btn-info btn-sm" style="width: 50%;">
           <i class="fa fa-shopping-cart"></i> Add to Cart</a> 
           <a href="#" class="btn btn-info btn-sm" style="width: 40%;"><i class="fa fa-heart" style="color: red;"></i>&nbsp;Wishlist</a></p>  
             </div>

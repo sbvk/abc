@@ -1,9 +1,10 @@
 var mongoose = require('mongoose');
 
 var photoSchema = new mongoose.Schema({
+  
   name: String,
   desc: String,
-  price: String,
+  price: Number,
   img:
   {
       data:Buffer,

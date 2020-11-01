@@ -5,6 +5,7 @@ const Image=mongoose.model('Image');
 var emp=new Image();
 var THREE = require('three');
 var FBXLoader = require('three-fbx-loader');
+const { findById } = require('../models/photo.model');
 var loader = new FBXLoader(); 
 var scene = new THREE.Scene();
 
@@ -41,5 +42,8 @@ router.get('/',(_req,res)=>{ var mysort = { date: -1 };
    
 
 });
+
+
+
 
 module.exports=router;
