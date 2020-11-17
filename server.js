@@ -16,6 +16,8 @@ const contactusController=require('./controllers/contactusController');
 const contactlistController=require('./controllers/contactlistController');
 const cartController=require('./controllers/cartController');
 const icartController=require('./controllers/icartController');
+const wishController=require('./controllers/wishController');
+const orderController=require('./controllers/orderController');
 const ind=require('./controllers/index');
 const ind1=require('./controllers/index1');
 const auth=require('./controllers/auth');
@@ -153,6 +155,8 @@ app.use('/con',contactusController);
 app.use('/conlist',contactlistController);
 app.use('/cart',cartController);
 app.use('/icart',icartController);
+app.use('/wish',wishController);
+app.use('/ord',orderController)
 app.use('/ind',ind);
 app.use('/auth',auth);
 app.use('/ind1',ind1);

@@ -10,7 +10,7 @@
     <div class="row row-content">  <div class="col-5 col-sm-12">     
 <table class="table table-striped">
     <thead>
-        <tr>
+        <tr><th>Sr.No</th>
             <th>id</th>
             <th> First Name </th>
             <th> Last Name </th>
@@ -20,11 +20,12 @@
             <th> Timestamp </th>
         </tr>
     </thead>
-        <tbody>       
+        <tbody>   <script type="text/javascript"> var i=1; </script>    
              {{#each thumb}} 
 
-            <tr> 
-                <td> {{#each this}}{{this._id}}{{/each}} </td> 
+            <tr> <script type="text/javascript">for( ;i<=orders.length;i++)</script>
+            <td><script type="text/javascript">  {document.write(i); i++; }</script></td>
+             {{#each this}}  <td> {{_id}} </td> {{/each}}
            <td> {{#each this}}{{this.firstname}}{{/each}} </td> 
              <td> {{#each this}}{{this.lastname}}{{/each}} </td> 
                <td> {{#each this}}{{this.contact}}{{/each}} </td> 

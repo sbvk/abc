@@ -21,6 +21,7 @@ router.get('/', function(req,res,next){
     //
 
 });
+
 router.post('/checkout', function(req,res,next){
     if(!req.session.cart){
         console.log('noo');
@@ -29,7 +30,7 @@ router.post('/checkout', function(req,res,next){
         var cart=new Cart(req.session.cart);
         var order=new Order({
             id:req.user,
-            //cart:cart
+            cart:cart,
             email:req.user.email,
             firstname:req.user.firstname,
             date: new Date()

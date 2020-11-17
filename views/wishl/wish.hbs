@@ -1,0 +1,84 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bootstrap-social/bootstrap-social.css">
+  
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+<div class="container">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">  
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">  <!--<img src="img/logo.png" height="30" width="41">--></a>
+    <div class="collapse navbar-collapse" id="Navbar">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html" ><span class="fa fa-home fa-lg"></span> Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="aboutus.html" ><span class="fa fa-info fa-lg"></span> About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="/base" ><span class="fa fa-list fa-lg"></span> 3D Models</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" ><span class="fa fa-list fa-lg"></span> Premium Models</a></li> 
+        <li class="nav-item"><a class="nav-link" href="/con" ><span class="fa fa-address-card fa-lg"></span> Contact Us</a></li>
+    </ul>
+    <div class="col-2 col-sm-2"> 
+                <a href="/base" class="btn btn-primary">Back</a></div> 
+    </div>
+</div>
+</nav>
+<div class="container"> 
+            <div class="row row-content">
+{{#if products}}
+<table class="table table-striped">
+    <thead>
+        <tr>
+        
+        <th>Name</th>
+       
+        <th>Item</th>
+        <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each products}} 
+<tr>
+ 
+ <td>{{this.item.name}}</td>
+ 
+<td><img src="data:img/fbx;base64,{{this.item.img.base}}"  height="100" width="100"></td>
+ <td>{{this.price}}</td>
+ <td><form method="post" action="">
+<button class="btn btn-danger" type="submit">Remove 1 Item</button></form></td>
+</tr>{{/each}}</tbody>
+</table><br>
+
+
+</div> 
+{{else}}
+No items in wishlist
+{{/if}}
+
+ </div>
+<script src="jquery/dist/jquery.slim.min.js"></script>
+    <script src="popper.js/dist/umd/popper.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+   
+    <script>
+        
+        $(document).ready(function(){
+                $("#loginid").click(function(){
+                $("#loginModal").modal('show');
+            })
+        });
+    </script> 
+    
+ 
+</body>
+</html>
