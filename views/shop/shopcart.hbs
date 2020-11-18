@@ -42,7 +42,7 @@
         
         <th>Name</th>
         <th>Qty</th>
-        <!--<th>Item</th>-->
+        <th>Item</th>
         <th>Price</th>
         </tr>
     </thead>
@@ -52,7 +52,7 @@
  
  <td>{{this.item.name}}</td>
  <td>{{this.qty}}</td>
-<!-- <td><img src="data:img/fbx;base64,{{this.item.img.base}}"  height="100" width="100"></td>-->
+<td><img src="data:img/fbx;base64,{{#each this.items}}{{this.item.img.base}}{{/each}}"  height="100" width="100"></td>
  <td>{{this.price}}</td>
  <td><form method="post" action="/icart/reduce/{{this.item._id}}">
 <button class="btn btn-danger" type="submit">Remove 1 Item</button></form>

@@ -17,7 +17,7 @@ router.get('/',(req,res)=>{
         } else{
             console.log('error :'+err);
         }
-    }).sort(mysort)
+    })
 });
 
 module.exports=router;

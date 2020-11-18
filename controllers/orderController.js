@@ -27,6 +27,7 @@ router.get('/', function(req,res,next){
 
 });
 
+
 router.post('/reduce/:_id',function(req,res,next){
     var pid=req.params._id;
     Wishlist1.findByIdAndDelete(pid, function (err, docs) { 

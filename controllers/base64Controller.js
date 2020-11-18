@@ -26,7 +26,7 @@ router.get('/',(_req,res)=>{ var mysort = { date: -1 };
             //cap: cap
            
         })
-      }).sort(mysort)
+      })
     /*
     Image.findById('5f92802573b14f5e64635327', function(err, result) {
         if (err) throw (err);
