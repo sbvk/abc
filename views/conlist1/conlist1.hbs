@@ -9,25 +9,32 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>id</th>
-            <th> First Name </th>
-            <th> Last Name </th>
+           
+            <th> Name </th>
             <th> Contact </th>
+            <th>  </th>
             <th> Email </th>
+            <th>  </th>
             <th> Message </th>
-             <th> Timestamp </th>
+             <th> Contacted On </th>
+
         </tr>
     </thead>
         <tbody>  {{#each thumb}} 
 
             <tr> 
-                <td> {{#each this}}{{this._id}}{{/each}} </td> 
-           <td> {{#each this}}{{this.firstname}}{{/each}} </td> 
-             <td> {{#each this}}{{this.lastname}}{{/each}} </td> 
-               <td> {{#each this}}{{this.contact}}{{/each}} </td> 
-               <td> {{#each this}}{{this.email}}{{/each}} </td> 
+               
+           <td> {{#each this}}{{this.firstname}}&nbsp;{{this.lastname}}{{/each}} </td> 
+               <td> {{#each this}}{{this.contact}}{{/each}}   </td><td>
+                   <a role="button" class="btn btn-primary" href="tel:{{#each this}}{{this.contact}}{{/each}}"><i class="fa fa-phone">
+                </i> Call</a> &nbsp;</td> 
+               <td> {{#each this}}{{this.email}}{{/each}} </td><td>
+                   <a role="button" class="btn btn-info" href="mailto:{{#each this}}{{this.email}}{{/each}}"><i class="fa fa-envelope-o"></i> 
+                   Email</a> </td> 
                <td> {{#each this}}{{this.message}}{{/each}} </td> 
                 <td> {{#each this}}{{this.date}}{{/each}} </td> 
+                <td><form method="post" {{#each this}}action="/con/reduce/{{this._id}}"{{/each}}>
+<button class="btn btn-success" type="submit">Contacted</button></form></td>
             </tr> 
              {{/each}}
           

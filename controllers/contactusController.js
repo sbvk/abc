@@ -13,7 +13,20 @@ router.post('/',(req,res)=>{
     insertRecord1(req,res);
 
 });
-
+router.post('/reduce/:_id',function(req,res,next){
+    var pid=req.params._id;
+    Contactus.findByIdAndDelete(pid, function (err, docs) { 
+        if (err){ 
+            console.log(err) 
+        } 
+        else{ 
+            console.log("Deleted : ", docs); 
+        } 
+    }); 
+   
+    res.redirect('/conlist');
+   
+ });
 function insertRecord1(req,res,err){
     var con=new Contactus();
     con.date=new Date();

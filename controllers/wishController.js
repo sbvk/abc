@@ -29,16 +29,29 @@ router.get('/:_id',function(req,res,next){
             wish:req.session.wish,
             email:req.user.email,
             firstname:req.user.firstname,
-            date: new Date()
+            date: new Date()  
 
         }); 
-        Wishlist1.find({wish:wishlist.wish},function(err,docs){
+        Wishlist1.find({$and : [{wish:req.session.wish},{id:req.user}]},function(err,docs){
             if(!err) 
             console.log("already added");
             else
-            console.log("new");
+            //console.log("new");
+            {
+                wishlist.save(function(err,result){
+                    if(err){
+                        console.log(err);
+                    }
+                    else {
+                    console.log('saved');
+                    req.flash('success','saved');
+                    req.session.wish=null;
+                    res.redirect('/base');
+                }
+                });
+            }
          });
-        wishlist.save(function(err,result){
+       /* wishlist.save(function(err,result){
             if(err){
                 console.log(err);
             }
@@ -48,7 +61,7 @@ router.get('/:_id',function(req,res,next){
             req.session.wish=null;
             res.redirect('/base');
         }
-        }); 
+        }); */
     }
      }); 
      
