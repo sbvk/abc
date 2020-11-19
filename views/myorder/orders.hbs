@@ -28,13 +28,14 @@
         <li class="nav-item"><a class="nav-link" href="#" ><span class="fa fa-list fa-lg"></span> Premium Models</a></li> 
         <li class="nav-item"><a class="nav-link" href="/con" ><span class="fa fa-address-card fa-lg"></span> Contact Us</a></li>
     </ul>
-    <div class="col-2 col-sm-2"> 
-                <a href="/ind/dashboard" class="btn btn-primary">Back</a></div> 
-    </div>
+     
+    </div><div class="col-2 col-sm-2"> 
+                <a href="/ind/dashboard" class="btn btn-primary">Back</a></div>
 </div>
 </nav>
 <div class="container"> 
-        <div class="row row-content"><B><h1>Your Orders</h1> </B>
+        <div class="row row-content"><B><h1>My Orders &nbsp;<i class="fa fa-shopping-bag" style="color:palevioletred; size:50%;"></i></h1> </B>
+       
 {{#if orders}}
 <table class="table table-striped">
     <thead>
@@ -55,7 +56,9 @@
     document.write(i); i++;
      }</script></td>
  <td>{{#each this.items}}{{this.item.name}}{{/each}}</td> 
-<td><img src="data:img/fbx;base64,{{#each this.items}}{{this.item.img.base}}{{/each}}"  height="100" width="100"></td>
+<td><img src="data:img/fbx;base64,{{#each this.items}}{{#each this.item.img.base}}{{this}}{{/each}}{{/each}}"  height="100" width="100">
+   </td>
+  <!-- <td>{{#each this.items}}{{#each this.item.img.base.data}}{{this}}{{/each}}{{/each}}</td>-->
  <td>{{#each this.items}}{{this.item.price}}{{/each}}</td>
  <td>{{#each this.items}}{{this.qty}}{{/each}}</td>
  <td>{{#each this}}{{this.date}}{{/each}}</td>

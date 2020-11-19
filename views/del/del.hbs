@@ -1,0 +1,36 @@
+<body>
+   <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+        <div class="col-10 col-sm-10" style="text-align: center;">
+            <h1 class="word"> Update/Delete 3d model pics</h1></div>
+            <div class="col-2 col-sm-2">
+             <a href="/ind1/dashboard1" class="btn btn-primary">Back</a></div> </nav>
+
+    <div class="row row-content">   <div class="col-5 col-sm-12">
+   <table class="table table-striped">
+    <thead>
+        <tr>
+           
+            <th> Name </th>
+            <th> Desc </th>
+            <th> Item </th>
+             <th> Price </th>
+
+        </tr>
+    </thead> 
+        <tbody>
+   
+  {{#each thumb}} <tr>
+  <form method="post" {{#each this}}action="/dele/update/{{this._id}}"{{/each}}>
+  <td> <input type="text" id="name" name="name"  class="form-control" style="width: 50%;" value="{{#each this}}{{this.name}}{{/each}}">     </td>
+   <td> <input type="text" id="desc" name="desc"  class="form-control" style="width: 50%;" value="{{#each this}}{{this.desc}}{{/each}}"></td>
+    <td><img src="data:img/fbx;base64,{{#each this}}{{this.img.base}}{{/each}}"  height="100" width="100"></td>
+ <td> <input type="text" id="price" name="price"  class="form-control" style="width: 50%;" value="{{#each this}}{{this.price}}{{/each}}"></td>
+  <td>
+<button class="btn btn-info" type="submit">Update <i class="fa fa-pencil"></i> </button></td></form>
+  <td><form method="post" {{#each this}}action="/dele/reduce/{{this._id}}"{{/each}}>
+<button class="btn btn-danger" type="submit">Delete <i class="fa fa-trash"></i> </button></form></td>        
+    </tr>{{/each}}</tbody>
+    
+</table> 
+</div></div>
+</body>

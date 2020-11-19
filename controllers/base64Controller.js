@@ -38,12 +38,6 @@ router.get('/',(_req,res)=>{ var mysort = { date: -1 };
        
     });*/
     
-    
-   
-
 });
-
-
-
 
 module.exports=router;

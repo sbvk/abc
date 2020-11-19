@@ -14,27 +14,13 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
-<div class="container">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">  
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="#">  <!--<img src="img/logo.png" height="30" width="41">--></a>
-    <div class="collapse navbar-collapse" id="Navbar">
-    <ul class="navbar-nav mr-auto">
-        <li class="nav-item"><a class="nav-link" href="index.html" ><span class="fa fa-home fa-lg"></span> Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="aboutus.html" ><span class="fa fa-info fa-lg"></span> About Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="/base" ><span class="fa fa-list fa-lg"></span> 3D Models</a></li>
-        <li class="nav-item"><a class="nav-link" href="#" ><span class="fa fa-list fa-lg"></span> Premium Models</a></li> 
-        <li class="nav-item"><a class="nav-link" href="/con" ><span class="fa fa-address-card fa-lg"></span> Contact Us</a></li>
-    </ul>
-    <div class="col-2 col-sm-2"> 
-                <a href="/ind1/dashboard1" class="btn btn-primary">Back</a></div> 
-    </div>
-</div>
-</nav>
-<div class="container"> 
-        <div class="row"><B><h1>All Orders</h1> </B>
+   <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+        <div class="col-10 col-sm-10" style="text-align: center;">
+            <h1 class="word"> All Orders</h1></div>
+            <div class="col-2 col-sm-2">
+             <a href="/ind1/dashboard1" class="btn btn-primary">Back</a></div> </nav>
+
+          <div class="row row-content">   <div class="col-5 col-sm-12">
 {{#if orders}}
 <table class="table table-striped">
     <thead>

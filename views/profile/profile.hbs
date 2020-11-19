@@ -28,13 +28,13 @@
         <li class="nav-item"><a class="nav-link" href="#" ><span class="fa fa-list fa-lg"></span> Premium Models</a></li> 
         <li class="nav-item"><a class="nav-link" href="/con" ><span class="fa fa-address-card fa-lg"></span> Contact Us</a></li>
     </ul>
-    <div class="col-2 col-sm-2"> 
-                <a href="/ind/dashboard" class="btn btn-primary">Back</a></div> 
-    </div>
+    
+    </div> <div class="col-2 col-sm-2"> 
+                <a href="/ind/dashboard" class="btn btn-primary">Back</a></div>
 </div>
 </nav>
 <div class="container"> 
-        <div class="row row-content"><span class="fa fa-heart fa-lg" style="color: red; padding-left:200px;"></span>&nbsp;<B><h1>Your wishlist</h1> </B>
+        <div class="row row-content"><B><h1>Your wishlist &nbsp;<i class="fa fa-heart" style="color: red; size:50%;"></i></h1> </B>
 {{#if orders}}
 <table class="table table-striped">
     <thead>
@@ -59,15 +59,17 @@
  <td>{{#each this.items}}{{this.item.price}}{{/each}}</td>
  <td>{{#each this}}{{this.date}}{{/each}}</td>
  <td><form method="post" {{#each this}}action="/ord/reduce/{{this._id}}"{{/each}}>
-<button class="btn btn-danger" type="submit">Remove</button></form></td>
+<button class="btn btn-danger" type="submit">Remove&nbsp;<i class="fa fa-trash"></i></button></form></td>
 </tr>{{/each}}</tbody>
 </table><br>
 <form method="post" action="/ord/remove/">
-<button class="btn btn-warning" type="submit">Remove All</button></form>
+<button class="btn btn-warning" type="submit">Remove All&nbsp;<i class="fa fa-trash"></i></button></form>
 
 </div> 
 {{else}}
+<div class="row row-content">
 No items in wishlist
+</div>
 {{/if}}
 
 
