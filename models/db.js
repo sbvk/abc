@@ -11,3 +11,4 @@ require('./admin.model');
 require('./contactus.model');
 require('./order.model');
 require('./wishlist.model');
+require('./cartlist.model');

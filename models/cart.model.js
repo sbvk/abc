@@ -1,4 +1,5 @@
 module.exports=function Cart(oldCart){
+    /*
     this.items=oldCart.items|| {};
     this.totalQty=oldCart.totalQty|| 0;
     this.totalPrice=oldCart.totalPrice|| 0;
@@ -13,7 +14,7 @@ module.exports=function Cart(oldCart){
         this.totalPrice += storedItem.item.price;
         
     };
-    this.reducebyOne=function(id){
+     this.reducebyOne=function(id){
         this.items[id].qty--;
         this.items[id].price-=this.items[id].item.price;
         this.totalQty--;
@@ -29,6 +30,18 @@ module.exports=function Cart(oldCart){
             delete this.items[id];
     
     };
+    
+    */
+    this.items=oldCart.items|| {};
+    this.add=function(item,id){
+        var storedItem=this.items[id];
+        if(!storedItem){
+            storedItem=this.items[id] =  {item:item, price: item.price};
+        }
+        
+        
+    };
+   
     this.generateArray = function(){
         var arr=[];
         for(var id in this.items){

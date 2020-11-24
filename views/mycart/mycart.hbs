@@ -28,25 +28,23 @@
         <li class="nav-item"><a class="nav-link" href="#" ><span class="fa fa-list fa-lg"></span> Premium Models</a></li> 
         <li class="nav-item"><a class="nav-link" href="/con" ><span class="fa fa-address-card fa-lg"></span> Contact Us</a></li>
     </ul>
-     
-    </div><div class="col-2 col-sm-2"> 
+    
+    </div> <div class="col-2 col-sm-2"> 
                 <a href="/ind/dashboard" class="btn btn-primary">Back</a></div>
 </div>
 </nav>
 <div class="container"> 
-        <div class="row row-content"><B><h1>My Orders &nbsp;<i class="fa fa-shopping-bag" style="color:palevioletred; size:50%;"></i></h1> </B>
-       
-{{#if orders}}
+        <div class="row row-content"><B><h1>Your cart &nbsp;<i class="fa fa-shopping-cart" style="color:orange; size:50%;"></i></h1> </B>
+{{#if orders}} <form method="post" id="myform" action="/icart1/checkout"></form>
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Sr.No</th>
+        <th>Sr.No</th>
         <th>Name</th>
         <th>Item</th>
         <th>Price</th>
-        <th>Quantity</th>
-        <th>TotalPrice</th>
         <th>Added On</th>
+        <th>Quantity</th>
         </tr>
     </thead>
     <tbody> <script type="text/javascript"> var i=1; </script>
@@ -56,20 +54,27 @@
  <td><script type="text/javascript">  {
     document.write(i); i++;
      }</script></td>
- <td>{{#each this.items}}{{this.item.name}}{{/each}}</td> 
-<td><img src="data:img/fbx;base64,{{#each this.items}}{{this.item.img.base}}{{/each}}"  height="100" width="100">
-   </td>
-  <!-- <td>{{#each this.items}}{{#each this.item.img.base.data}}{{this}}{{/each}}{{/each}}</td>-->
+ <td>{{#each this.items}}{{this.item.name}}{{/each}}</td>
+ 
+<td><img src="data:img/fbx;base64,{{#each this.items}}{{this.item.img.base}}{{/each}}"  height="100" width="100"></td>
  <td>{{#each this.items}}{{this.item.price}}{{/each}}</td>
- <td>{{#each this}}{{this.qty}}{{/each}}</td>
- <td>{{#each this}}{{this.totalprice}}{{/each}}</td>
  <td>{{#each this}}{{this.date}}{{/each}}</td>
-</tr>{{/each}}</tbody>
-</table><br>
-
-</div> 
+ <td><input type="number" name="qty[]" id="qty" form="myform" value="" width="20px;" /></td>
+ <td><form method="post" {{#each this}}action="/icart1/reduce/{{this._id}}"{{/each}}>
+<button class="btn btn-danger" type="submit">Remove&nbsp;<i class="fa fa-trash"></i></button></form></td>
+</tr>{{/each}}
+</tbody>
+</table>
+  
+<button class="btn btn-success" form="myform" type="submit">Checkout</button></form> 
+<form method="post" action="/icart1/remove/">
+<button class="btn btn-warning" type="submit">Empty Cart&nbsp;<i class="fa fa-trash"></i></button></form>
+</div> Total Price=  
+ Total Items= 
 {{else}}
-No orders yet!
+<div class="row row-content">
+No items in cart
+</div>
 {{/if}}
 
 
@@ -78,7 +83,11 @@ No orders yet!
 <script src="jquery/dist/jquery.slim.min.js"></script>
     <script src="popper.js/dist/umd/popper.min.js"></script>
     <script src="bootstrap/dist/js/bootstrap.min.js"></script>
-   
+   <script src="./src/bootstrap-input-spinner.js"></script>
+<script>
+    $("input[type='number']").inputSpinner()
+  
+</script>
     <script>
         
         $(document).ready(function(){

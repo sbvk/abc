@@ -15,7 +15,9 @@ const adminController=require('./controllers/adminController');
 const contactusController=require('./controllers/contactusController');
 const contactlistController=require('./controllers/contactlistController');
 const cartController=require('./controllers/cartController');
+const cart1Controller=require('./controllers/cart1Controller');
 const icartController=require('./controllers/icartController');
+const icart1Controller=require('./controllers/icart1Controller');
 const wishController=require('./controllers/wishController');
 const orderController=require('./controllers/orderController');
 const myorderController=require('./controllers/myorderController');
@@ -41,7 +43,7 @@ app.use(session({
     resave:false,
     saveUninitialized:false,
     store:new MongoStore({mongooseConnection:mongoose.connection}),
-    cookie:{maxAge:20*60*1000}
+    cookie:{maxAge:100*60*1000}
 }))
 
 app.use(passport.initialize());
@@ -157,7 +159,9 @@ app.use('/admin',adminController);
 app.use('/con',contactusController);
 app.use('/conlist',contactlistController);
 app.use('/cart',cartController);
+app.use('/cart1',cart1Controller);
 app.use('/icart',icartController);
+app.use('/icart1',icart1Controller);
 app.use('/wish',wishController);
 app.use('/ord',orderController);
 app.use('/myord',myorderController);

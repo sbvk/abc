@@ -32,6 +32,7 @@
         <th>Item</th>
         <th>Price</th>
         <th>Quantity</th>
+        <th>Total Price</th>
         <th>Ordered On</th>
         </tr>
     </thead>
@@ -47,10 +48,11 @@
  <td>{{#each this.items}}{{this.item.name}}{{/each}}</td> 
 <td><img src="data:img/fbx;base64,{{#each this.items}}{{this.item.img.base}}{{/each}}"  height="100" width="100"></td>
  <td>{{#each this.items}}{{this.item.price}}{{/each}}</td>
- <td>{{#each this.items}}{{this.qty}}{{/each}}</td>
+ <td>{{#each this}}{{this.qty}}{{/each}}</td>
+ <td>{{#each this}}{{this.totalprice}}{{/each}}</td>
  <td>{{#each this}}{{this.date}}{{/each}}</td>
  <td><form method="post" {{#each this}}action="/all/reduce/{{this._id}}"{{/each}}>
-<button class="btn btn-success" type="submit">Delivered</button></form></td>
+<button class="btn btn-success" type="submit">Delivered(this option not reqd)</button></form></td>
 </tr>{{/each}}</tbody>
 </table><br>
 

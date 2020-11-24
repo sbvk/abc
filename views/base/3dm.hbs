@@ -29,7 +29,7 @@
         <li class="nav-item"><a class="nav-link" href="/con" ><span class="fa fa-address-card fa-lg"></span> Contact Us</a></li>
     </ul>
     <span class="navbar-text">
-        <a href="/icart"><span class="fa fa-shopping-cart"></span>&nbsp;Cart<span class="badge">{{session.cart.totalQty}} </span></a>
+        <a href="/icart1"><span class="fa fa-shopping-cart"></span>&nbsp;Cart<span class="badge">{{session.cart.totalQty}} </span></a>
     
      <a href="/ord"><span class="fa fa-heart"></span>&nbsp;Wishlist</a>
     <a>&nbsp;</a>
@@ -95,7 +95,7 @@
      
      {{#each this}}{{this.desc}}{{/each}}
      <span class="badge badge-dark" style="margin-left:70%;">Rs.{{#each this}}{{this.price}}{{/each}}/-</span> <br> <br>
-      <p><a {{#each this}}href="/cart/{{this._id}}"{{/each}} class="btn btn-info btn-sm" style="width: 50%;">
+      <p><a {{#each this}}href="/cart1/{{this._id}}"{{/each}} class="btn btn-info btn-sm" style="width: 50%;">
           <i class="fa fa-shopping-cart"></i> Add to Cart</a> 
           <a {{#each this}}href="/wish/{{this._id}}"{{/each}} class="btn btn-info btn-sm" style="width: 40%;" >
           <i class="fa fa-heart" style="color: red;"></i> &nbsp;Wishlist</a></p>  
