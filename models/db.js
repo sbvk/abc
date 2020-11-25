@@ -1,5 +1,6 @@
 const mongoose=require('mongoose');
 mongoose.connect('mongodb+srv://sbvk:atlas123@abc.fxne0.mongodb.net/CustomerDB',{useNewUrlParser:true, useUnifiedTopology: true,
+ connectTimeoutMS: 100*60*1000,
 useFindAndModify: false,poolSize: 100},
 (err)=>{
     if(!err) {console.log('conn succeeded')}
