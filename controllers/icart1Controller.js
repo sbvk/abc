@@ -32,7 +32,7 @@ router.post('/checkout', function(req,res,next){
    
         //var cart=req.session.cart;
        
-        var pid=req.user._id; var i=0;
+        var pid=req.user._id; var i=0; var qua=0;var tp=0; 
         //var qty=req.body.qty;
         //console.log(qty);
         Cartlist1.find({id:pid},function(err,docs){
@@ -47,7 +47,7 @@ router.post('/checkout', function(req,res,next){
             if(err)
                 console.log(err);
                 else{
-                
+          /*      
         var order=new Order({
             id:rep.id,
             cart:rep.cart,
@@ -57,7 +57,24 @@ router.post('/checkout', function(req,res,next){
             firstname:req.user.firstname,
             date: new Date()
 
-        }); console.log(req.body.qty[i],pr); i++;
+        }); */
+        console.log(req.body.qty[i],pr); 
+        
+        qua=parseInt(qua)+parseInt(req.body.qty[i]); 
+        //qua= (qua-0)+(req.body.qty[i]-0);
+        tp= parseInt(tp) + parseInt(pr*req.body.qty[i]);
+        rep.qty=req.body.qty[i];
+        rep.save(function(err,result){
+            if(err){
+                console.log(err);
+            }
+            else {
+                console.log("updated qty:",result);
+            }
+        })
+        console.log(tp);
+        i++; 
+        /*
         order.save(function(err,result){
             if(err){
                 console.log(err);
@@ -79,10 +96,68 @@ router.post('/checkout', function(req,res,next){
                 }); //res.redirect('/myord');
            
         }
-        });
+        });*/
+        
          }
+        });
+      
+     res.render('checkout/checkout',{docs:docs, qua:qua, tp:tp});
 });
+
 });
+router.post('/place', function(req,res,next){
+    var pid=req.user._id;var i=0;
+    Cartlist1.find({id:pid},function(err,docs){
+      docs.forEach(function(rep){
+          var pro=Object.values(rep.cart.items);
+          var p=Object.entries(pro);
+          var pq=Object.values(p[0]);
+          var pp=pq[1];
+          var pr=pp.price;
+          //console.log(req.body.qty[i]);
+          
+        if(err)
+            console.log(err);
+            else{
+          
+    var order=new Order({
+        id:rep.id,
+        cart:rep.cart,
+        qty:rep.qty,
+        totalprice: pr*rep.qty,
+        email:req.user.email,
+        firstname:req.user.firstname,
+        date: new Date()
+
+    }); 
+    console.log(rep.qty,pr); 
+    
+    order.save(function(err,result){
+        if(err){
+            console.log(err);
+        }
+        else {
+            
+        
+        Cartlist1.findOneAndDelete({id:pid}, function (err, docs) { 
+                if (err){ 
+                    console.log(err) 
+                } 
+                else{ 
+                    console.log("Deleted : ", docs); 
+                    console.log('ordered');
+                    req.flash('success','bought');
+                    req.session.cart=null;
+                    //res.redirect('/icart1');
+                } //res.redirect('/myord');
+            }); //res.redirect('/myord');
+       
+    }
+    });
+    
+     }
+});     
+});//res.redirect('/myord');
 
 });
 
@@ -129,7 +204,7 @@ router.post('/reduce/:_id',function(req,res,next){
     }); */
    
    
-   
+    
  
 
  

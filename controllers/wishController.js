@@ -8,7 +8,7 @@ var Wish=require('../models/wish.model');
 var Wishlist=require('../models/wishlist.model');
 var Wishlist1=mongoose.model('Wishlist');
 
-router.get('/:_id',function(req,res,next){
+router.post('/:_id',function(req,res,next){
     var pid=req.params._id;
      var wish=new Wish(req.session.wish ? req.session.wish: {} );
     Image.findById(pid,function(err,product){
@@ -32,6 +32,7 @@ router.get('/:_id',function(req,res,next){
             date: new Date()  
 
         }); 
+        /*
         Wishlist1.find({$and : [{wish:req.session.wish},{id:req.user}]},function(err,docs){
             if(!err) 
             console.log("already added");
@@ -50,8 +51,8 @@ router.get('/:_id',function(req,res,next){
                 }
                 });
             }
-         });
-       /* wishlist.save(function(err,result){
+         }); */
+        wishlist.save(function(err,result){
             if(err){
                 console.log(err);
             }
@@ -61,7 +62,7 @@ router.get('/:_id',function(req,res,next){
             req.session.wish=null;
             res.redirect('/base');
         }
-        }); */
+        }); 
     }
      }); 
      
