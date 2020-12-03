@@ -69,16 +69,23 @@
 <button class="btn btn-success" form="myform" type="submit">Checkout</button></form> 
 <form method="post" action="/icart1/remove/">
 <button class="btn btn-warning" type="submit">Empty Cart&nbsp;<i class="fa fa-trash"></i></button></form>
-</div>
+</div> </div>
 {{else}}
-<div class="row row-content">
-No items in cart
+<div class="container"><br>
+<table><div class="row row-content">
+    <div class="col-sm-3"> &nbsp;</div><div class="col-12 col-sm-9"><h3> No items in your cart!</h3></div>
+    <br><br>
+    <div class="col-12 col-sm-12">
+<div class="card">
+  <a href="/base"><img src="ca.gif" style="width:50%">
+  <p><button>Shop Now!</button></p></a><p>Check out our exclusive models and shop!</p>
+</div></div></div></table>
 </div>
 {{/if}}
 
 
 
- </div>
+ 
 <script src="jquery/dist/jquery.slim.min.js"></script>
     <script src="popper.js/dist/umd/popper.min.js"></script>
     <script src="bootstrap/dist/js/bootstrap.min.js"></script>
