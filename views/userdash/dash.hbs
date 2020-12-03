@@ -9,7 +9,71 @@
         <link rel="stylesheet" href="https://model3ddd.herokuapp.com/css/styles.css">
         <link rel="stylesheet" href="https://model3ddd.herokuapp.com/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://model3ddd.herokuapp.com/bootstrap-social/bootstrap-social.css">
-        
+        <style>
+.card {
+  
+  max-width: 200px;
+  max-height: 400px;
+ 
+  text-align: center;
+  font-family: arial;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+.dropbtn {
+  background-color: transparent;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: black;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: black}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+</style>
     </head>
     <body>
         <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
@@ -28,7 +92,12 @@
         <li class="nav-item"><a class="nav-link" href="/con" ><span class="fa fa-address-card fa-lg"></span> Contact Us</a></li>
     </ul></div>
      <div class="col-2 col-sm-3"> 
-                <div style="color: white;"> {{name}}&nbsp;{{lname}}</div> </div> <div class="col-2 col-sm-2"> 
+                <div style="color: white;"><div class="dropdown"> <button class="dropbtn"> {{name}}&nbsp;{{lname}}</button>
+                <div class="dropdown-content">
+                    <a>{{email}}</a>
+                    <a>{{contact}}</a>
+                </div>
+                </div></div> </div> <div class="col-2 col-sm-2"> 
                
                 <a href="/auth/logout" class="btn btn-primary">Logout</a></div> 
     
@@ -42,17 +111,42 @@
             
           
             <div class="container"> 
-                <div class="row row-content">
-welcome
- <br>
-{{email}}<br>
-{{contact}}</div>
+                
+<h1 style="margin-top: 50px;">Welcome {{name}}!</h1>
 
+
+                
+<!--
 <a href="#" class="btn btn-secondary">Change Password</a>
 <a href="/ord" class="btn btn-secondary">Wishlist&nbsp;<i class="fa fa-heart" style="color:red;"></i></a>
 <a href="/base" class="btn btn-secondary">Shop&nbsp;<i class="fa fa-shopping-cart" style="color:white;"></i></a>
 <a href="/myord" class="btn btn-secondary">My Orders&nbsp;<i class="fa fa-shopping-bag" style="color:palevioletred;"></i></a>
-<a href="/icart1" class="btn btn-secondary">My Cart&nbsp;<i class="fa fa-shopping-cart" style="color:palevioletred;"></i></a>
+<a href="/icart1" class="btn btn-secondary">My Cart&nbsp;<i class="fa fa-shopping-cart" style="color:palevioletred;"></i></a> -->
+
+<table><tr><div class="row row-content">
+
+<div class="card">
+  <a href="/ord"><img src="http://localhost:3000/wi.gif" style="width:75%">
+  <p><button>Wishlist</button></p></a><p>Check your Wishlist!</p>
+</div> 
+
+<div class="card">
+  <a href="/icart1"><img src="http://localhost:3000/cart.gif" style="width:90%">
+  <p><button>My Cart</button></p></a><p>Check your Shopping Cart!</p>
 </div>
+
+<div class="card">
+  <a href="/myord"><img src="http://localhost:3000/bag.gif" style="width:75%">
+  <p><button>My Orders</button></p></a><p>Check your orders!</p>
+</div>
+
+<div class="card">
+  <a href="/base"><img src="http://localhost:3000/ca.gif" style="width:100%">
+  <p><button>Shop Now!</button></p></a><p>Check out our exclusive models and shop!</p>
+</div>
+
+
+</div></tr></table>
+
 </body>
 </html>

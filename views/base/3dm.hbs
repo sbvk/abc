@@ -90,15 +90,15 @@
              <table>  
    <tr><div class="row row-content">
   {{#each thumb}} 
-     <div class="card"><img src="data:img/fbx;base64,{{#each this}}{{this.img.base}}{{/each}}"  height="250" width="250"><br>
-     <h5 class="card-title" style="width: 100%; height:10%; overflow-y: auto; ">{{#each this}}{{this.name}}{{/each}}</h5> 
-     
-     {{#each this}}{{this.desc}}{{/each}}
-     <span class="badge badge-dark" style="margin-left:70%;">Rs.{{#each this}}{{this.price}}{{/each}}/-</span> <br> <br>
-      <p><a {{#each this}}href="/cart1/{{this._id}}"{{/each}} class="btn btn-info btn-sm" style="width: 50%;">
+     <div class="card"><img src="data:img/fbx;base64,{{#each this}}{{this.img.base}}{{/each}}"  style="height: 40%; width:100%"><br>
+     <h5 class="card-title" style="width: 100%; height:15%; overflow-y: auto; ">{{#each this}}{{this.name}}{{/each}}</h5> 
+     <a style="width: 100%; height:15%; overflow-y: auto; ">{{#each this}}{{this.desc}}{{/each}}</a> 
+    
+     <span class="badge badge-dark" style="margin-left:60%;">Rs.{{#each this}}{{this.price}}{{/each}}/-</span> <br> <br>
+      <p><a {{#each this}}href="/cart1/{{this._id}}"{{/each}} class="btn btn-info btn-sm" style="width: 100%;">
           <i class="fa fa-shopping-cart"></i> Add to Cart</a> 
           <form method="post" {{#each this}}action="/wish/{{this._id}}"{{/each}}>
-          <button class="btn btn-info btn-sm" style="width: 40%;"  id="btnt" type="submit"
+          <button class="btn btn-info btn-sm" style="width: 100%;"  id="btnt" type="submit"
           onClick="this.form.submit();" >
           <i class="fa fa-heart" style="color: red;"></i> &nbsp;Wishlist</button></form></p>  
             </div>

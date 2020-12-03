@@ -21,8 +21,8 @@
    
   {{#each thumb}} <tr>
   <form method="post" {{#each this}}action="/dele/update/{{this._id}}"{{/each}}>
-  <td> <input type="text" id="name" name="name"  class="form-control" style="width: 50%;" value="{{#each this}}{{this.name}}{{/each}}">     </td>
-   <td> <input type="text" id="desc" name="desc"  class="form-control" style="width: 50%;" value="{{#each this}}{{this.desc}}{{/each}}"></td>
+  <td> <input type="text" id="name" name="name" maxlength="20" class="form-control" style="width: 50%;" value="{{#each this}}{{this.name}}{{/each}}">     </td>
+   <td> <input type="text" id="desc" name="desc" maxlength="30" class="form-control" style="width: 50%;" value="{{#each this}}{{this.desc}}{{/each}}"></td>
     <td><img src="data:img/fbx;base64,{{#each this}}{{this.img.base}}{{/each}}"  height="100" width="100"></td>
  <td> <input type="text" id="price" name="price"  class="form-control" style="width: 50%;" value="{{#each this}}{{this.price}}{{/each}}"></td>
   <td>
