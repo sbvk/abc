@@ -16,8 +16,15 @@ router.get('/', function(req,res,next){
             cart=new Cart(order.cart);
            order.items=cart.generateArray();
             
-        });
-        res.render('allorders/allorders',{orders:orders});
+        }); var ct;
+        Order1.countDocuments(function(err,ct){
+            if(err){
+                console.log(err);
+            }
+            console.log(ct);
+       
+        res.render('allorders/allorders',{orders:orders, ct:ct});
+    })
     }); 
 
    

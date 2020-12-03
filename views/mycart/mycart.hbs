@@ -59,7 +59,10 @@
 </div>
 </nav>
 <div class="container"> 
-        <div class="row row-content"><B><h1>Your cart &nbsp;<i class="fa fa-shopping-cart" style="color:orange; size:50%;"></i></h1> </B>
+        <div class="row row-content">
+             <div class="col-2 col-sm-4"> &nbsp;</div><div class="col-10 col-sm-8">
+            <B><h1>Your cart &nbsp;<i class="fa fa-shopping-cart" style="color:orange; size:50%;"></i></h1> </B></div>
+            <br>
 {{#if orders}} <form method="post" id="myform" action="/icart1/checkout"></form>
 <table class="table table-striped">
     <thead>
@@ -90,19 +93,19 @@
 </tr>{{/each}}
 </tbody>
 </table>
-  
-<button class="btn btn-success" form="myform" type="submit">Checkout</button></form> 
+     </div>   
+<button class="btn btn-success" form="myform" type="submit">Checkout</button> <br><br>
 <form method="post" action="/icart1/remove/">
 <button class="btn btn-warning" type="submit">Empty Cart&nbsp;<i class="fa fa-trash"></i></button></form>
-</div> </div>
+ </div>
 {{else}}
-<div class="container"><br>
+<div class="container">
 <table><div class="row row-content">
     <div class="col-sm-3"> &nbsp;</div><div class="col-12 col-sm-9"><h3> No items in your cart!</h3></div>
     <br><br>
-    <div class="col-12 col-sm-12">
+    <div class="col-12 col-sm-12"><br><br>
 <div class="card">
-  <a href="/base"><img src="ca.gif" style="width:50%">
+  <a href="/base"><img src="ca.gif" style="width:30%">
   <p><button>Shop Now!</button></p></a><p>Check out our exclusive models and shop!</p>
 </div></div></div></table>
 </div>

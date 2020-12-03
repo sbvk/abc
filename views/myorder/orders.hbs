@@ -59,10 +59,14 @@
 </div>
 </nav>
 <div class="container"> 
-        <div class="row row-content"><B><h1>My Orders &nbsp;<i class="fa fa-shopping-bag" style="color:palevioletred; size:50%;"></i></h1> </B>
+        <div class="row row-content">
+             <div class="col-2 col-sm-4"> &nbsp;</div><div class="col-10 col-sm-8">
+            <B><h1>My Orders &nbsp;<i class="fa fa-shopping-bag" style="color:palevioletred; size:50%;"></i></h1> </B>
+            <br>
+            </div>
        
 {{#if orders}}
-<table class="table table-striped">
+<table class="table table-striped"> 
     <thead>
         <tr>
             <th>Sr.No</th>
@@ -94,13 +98,13 @@
 
 </div> </div>
 {{else}}
-<div class="container"><br>
+<div class="container">
 <table><div class="row row-content">
     <div class="col-sm-3"> &nbsp;</div><div class="col-12 col-sm-9"><h3> No orders yet!</h3></div>
     <br><br>
-    <div class="col-12 col-sm-12">
+    <div class="col-12 col-sm-12"><br><br>
 <div class="card">
-  <a href="/base"><img src="ca.gif" style="width:50%">
+  <a href="/base"><img src="ca.gif" style="width:30%">
   <p><button>Shop Now!</button></p></a><p>Check out our exclusive models and shop!</p>
 </div></div></div></table>
 </div>

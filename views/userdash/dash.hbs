@@ -41,6 +41,12 @@
   font-size: 16px;
   border: none;
   cursor: pointer;
+   display: block;
+   width:55%;
+  max-width: 300px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .dropdown {
@@ -94,10 +100,11 @@
      <div class="col-2 col-sm-3"> 
                 <div style="color: white;"><div class="dropdown"> <button class="dropbtn"> {{name}}&nbsp;{{lname}}</button>
                 <div class="dropdown-content">
+                  <a>{{name}}&nbsp;{{lname}}</a>
                     <a>{{email}}</a>
                     <a>{{contact}}</a>
                 </div>
-                </div></div> </div> <div class="col-2 col-sm-2"> 
+                </div></div> </div> <div class="col-2"> 
                
                 <a href="/auth/logout" class="btn btn-primary">Logout</a></div> 
     
