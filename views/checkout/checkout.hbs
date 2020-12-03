@@ -34,16 +34,16 @@
    <th>Item</th>
    <th>Qty</th>
    <th>Price</th>
-   <th>Total Price</th>
+   <!--<th>Total Price</th>-->
 </thead> <tbody>
 {{#each docs}} <tr>
    <td>{{#each this}}{{#each this.cart.items}}{{this.item.name}}{{/each}}{{/each}}</td>
    <td><img src="data:img/fbx;base64,{{#each this}}{{#each this.cart.items}}{{this.item.img.base}}{{/each}}{{/each}}"  height="100" width="100"></td>
 <td>{{#each this}}{{this.qty}}{{/each}}</td>
 <td>{{#each this}}{{#each this.cart.items}}{{this.price}}{{/each}}{{/each}}</td>
-<td>
+<!--<td>
 {{#each this}}{{this.qty}}{{/each}} * {{#each this}}{{#each this.cart.items}}{{this.price}}{{/each}}{{/each}}
-</td>
+</td>-->
 </tr>
 {{/each}}
 <tr>
