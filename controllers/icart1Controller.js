@@ -151,13 +151,13 @@ router.post('/place', function(req,res,next){
                     //res.redirect('/icart1');
                 } //res.redirect('/myord');
             }); //res.redirect('/myord');
-            res.redirect('/myord');
+            
     }
     });
     
      }
 });     
-});//res.redirect('/myord');
+});res.redirect('/myord');
 
 });
 
