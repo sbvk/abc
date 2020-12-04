@@ -82,7 +82,7 @@
                 <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
                 <li class="breadcrumb-item active">3d Models</li>
             </ol>
-            <div class="col-12">
+            <div class="col-3 col-sm-3">&nbsp;</div><div class="col-9 col-sm-9">
                <h3>3d Models</h3>
                <hr>
             </div>
@@ -91,14 +91,14 @@
    <tr><div class="row row-content">
   {{#each thumb}} 
      <div class="card"><img src="data:img/fbx;base64,{{#each this}}{{this.img.base}}{{/each}}"  style="height: 40%; width:100%"><br>
-     <h5 class="card-title" style="width: 100%; height:15%; overflow-y: auto; ">{{#each this}}{{this.name}}{{/each}}</h5> 
-     <a style="width: 100%; height:15%; overflow-y: auto; ">{{#each this}}{{this.desc}}{{/each}}</a> 
+     <h5 class="card-title" style="width: 100%; height:20%; position:absolute; margin-top:200px; overflow-y:auto; ">{{#each this}}{{this.name}}{{/each}}</h5> 
+     <a style="width: 100%; height:20%;position:absolute; margin-top:230px; ">{{#each this}}{{this.desc}}{{/each}}</a> 
     
-     <span class="badge badge-dark" style="margin-left:60%;">Rs.{{#each this}}{{this.price}}{{/each}}/-</span> <br> <br>
-      <p><a {{#each this}}href="/cart1/{{this._id}}"{{/each}} class="btn btn-info btn-sm" style="width: 100%;">
+     <span class="badge badge-dark" style="position:absolute; margin-top:270px;">Rs.{{#each this}}{{this.price}}{{/each}}/-</span> 
+      <p></p><a {{#each this}}href="/cart1/{{this._id}}"{{/each}} class="btn btn-info btn-sm" style="width: 80%;position:absolute; margin-top:310px;">
           <i class="fa fa-shopping-cart"></i> Add to Cart</a> 
           <form method="post" {{#each this}}action="/wish/{{this._id}}"{{/each}}>
-          <button class="btn btn-info btn-sm" style="width: 100%;"  id="btnt" type="submit"
+          <button class="btn btn-info btn-sm" style="width: 80%; position:absolute; margin-top:350px;"  id="btnt" type="submit"
           onClick="this.form.submit();" >
           <i class="fa fa-heart" style="color: red;"></i> &nbsp;Wishlist</button></form></p>  
             </div>
