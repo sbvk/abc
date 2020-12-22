@@ -9,9 +9,11 @@ var Cart=require('../models/cart.model');
 var Cartlist=require('../models/cartlist.model');
 var Order=require('../models/order.model');
 var cartlistModel = require('../models/cartlist.model');
+const { ensureAuthenticated } = require('../config/checkAuth');
 
 router.get('/', function(req,res,next){
     var mysort = { date: -1 };
+     
     Cartlist.find({id:req.user},function(err,orders){
         if(err){
             console.log(err);
@@ -25,14 +27,14 @@ router.get('/', function(req,res,next){
         res.render('mycart/mycart',{orders:orders});
     }); 
 
-   
+  
 
 });
 router.post('/checkout', function(req,res,next){
    
         //var cart=req.session.cart;
        
-        var pid=req.user._id; var i=0; var qua=0;var tp=0; 
+        var pid=req.user._id; var i=0; var qua=0;var tp=0; var multi=0;
         //var qty=req.body.qty;
         //console.log(qty);
         Cartlist1.find({id:pid},function(err,docs){
@@ -58,11 +60,13 @@ router.post('/checkout', function(req,res,next){
             date: new Date()
 
         }); */
-        console.log(req.body.qty[i],pr); 
+        multi=pr*req.body.qty[i];
+        console.log(req.body.qty[i],pr,multi); 
         
         qua=parseInt(qua)+parseInt(req.body.qty[i]); 
         //qua= (qua-0)+(req.body.qty[i]-0);
         tp= parseInt(tp) + parseInt(pr*req.body.qty[i]);
+        rep.totalprice=multi;
         rep.qty=req.body.qty[i];
         rep.save(function(err,result){
             if(err){
