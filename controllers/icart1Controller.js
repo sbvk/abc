@@ -11,7 +11,7 @@ var Order=require('../models/order.model');
 var cartlistModel = require('../models/cartlist.model');
 const { ensureAuthenticated } = require('../config/checkAuth');
 
-router.get('/', function(req,res,next){
+router.get('/',ensureAuthenticated, function(req,res,next){
     var mysort = { date: -1 };
      
     Cartlist.find({id:req.user},function(err,orders){
@@ -24,7 +24,16 @@ router.get('/', function(req,res,next){
            order.items=cart.generateArray();
             
         });
-        res.render('mycart/mycart',{orders:orders});
+        var ct;
+        Cartlist.countDocuments({id:req.user},function(err,ct){
+            if(err){
+                console.log(err);
+            }
+            console.log(ct);
+       
+        res.render('mycart/mycart',{orders:orders, ct:ct});
+    })
+        //res.render('mycart/mycart',{orders:orders});
     }); 
 
   

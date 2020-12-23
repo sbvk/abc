@@ -87,7 +87,10 @@
  <td>{{#each this.items}}{{this.item.price}}{{/each}}</td>
  <td>{{#each this}}{{this.date}}{{/each}}</td>
  <td><form method="post" {{#each this}}action="/ord/reduce/{{this._id}}"{{/each}}>
-<button class="btn btn-danger" type="submit">Remove&nbsp;<i class="fa fa-trash"></i></button></form></td>
+<button class="btn btn-danger" type="submit">Remove&nbsp;<i class="fa fa-trash"></i></button></form>
+<!--<a {{#each this}}href="/cart1/{{this._id}}"{{/each}} class="btn btn-info btn-sm" style="width: 100%;">
+          <i class="fa fa-shopping-cart"></i> Add to Cart</a> -->
+</td>
 </tr>{{/each}}</tbody>
 </table><br>
 <form method="post" action="/ord/remove/">

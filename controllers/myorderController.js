@@ -3,8 +3,8 @@ var router=express.Router();
 const mongoose=require('mongoose');
 var Cart=require('../models/cart.model');
 var Order=require('../models/order.model');
-
-router.get('/', function(req,res,next){
+const { ensureAuthenticated } = require('../config/checkAuth');
+router.get('/',ensureAuthenticated, function(req,res,next){
     Order.find({id:req.user},function(err,orders){
         if(err){
             console.log(err);
@@ -18,7 +18,22 @@ router.get('/', function(req,res,next){
         res.render('myorder/orders',{orders:orders});
     }); 
 
-   
+   /* Order.aggregate([
+        {
+            $group:
+            {
+                _id:"$date"
+            }
+        }
+    ],
+    function(err, orders) {
+        if (err) {
+          res.send(err);
+        } else {
+          res.render('myorder/orders',{orders:orders});
+        }
+      }
+    ) */
 
 });
  

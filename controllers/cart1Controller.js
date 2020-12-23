@@ -6,9 +6,11 @@ const { findById } = require('../models/photo.model');
 var emp=new Image();
 var Cart=require('../models/cart.model');
 var Cartlist=require('../models/cartlist.model');
+const { ensureAuthenticated } = require('../config/checkAuth');
 //var Wishlist1=mongoose.model('Wishlist');
 
-router.get('/:_id',function(req,res,next){
+
+router.get('/:_id',ensureAuthenticated,function(req,res,next){
     var pid=req.params._id;
      var cart=new Cart(req.session.cart ? req.session.cart: {} );
     Image.findById(pid,function(err,product){
@@ -24,6 +26,7 @@ router.get('/:_id',function(req,res,next){
          console.log(req.session.cart);
         
          //res.redirect('/base');
+        
         var cartlist=new Cartlist({
             id:req.user,
             cart:req.session.cart,
@@ -62,6 +65,7 @@ router.get('/:_id',function(req,res,next){
             res.redirect('/base');
         }
         }); 
+   
     }
      }); 
      

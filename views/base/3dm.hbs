@@ -29,7 +29,14 @@
         <li class="nav-item"><a class="nav-link" href="/con" ><span class="fa fa-address-card fa-lg"></span> Contact Us</a></li>
     </ul>
     <span class="navbar-text">
-        <a href="/icart1"><span class="fa fa-shopping-cart"></span>&nbsp;Cart<span class="badge">{{session.cart.totalQty}} </span></a>
+        <a href="/icart1"><span class="fa fa-shopping-cart"></span>&nbsp;Cart&nbsp;<span class="badge" 
+        style="border-radius: 50%;
+    width: auto;
+    height: auto;
+    padding: 8px;
+    border: 2px solid coral;
+    text-align: center; color:yellow">
+            {{ct}} &nbsp;&nbsp; </span></a>
     
      <a href="/ord"><span class="fa fa-heart"></span>&nbsp;Wishlist</a>
     <a>&nbsp;</a>
@@ -117,10 +124,10 @@
      <a style="width: 100%; height:20%;  ">{{#each this}}{{this.desc}}{{/each}}</a> 
     
      <div class="cost" style="width: 150;"><span class="badge badge-dark" style="width:100%; ">Rs.{{#each this}}{{this.price}}{{/each}}/-</span> </div>
-      <p></p><a {{#each this}}href="/cart1/{{this._id}}"{{/each}} class="btn btn-info btn-sm" style="width: 100%;">
+      <p></p><a {{#each this}}href="/cart1/{{this._id}}"{{/each}} class="btn btn-info btn-sm" style="width: 100%; background:cornflowerblue; ">
           <i class="fa fa-shopping-cart"></i> Add to Cart</a> 
           <form method="post" {{#each this}}action="/wish/{{this._id}}"{{/each}}>
-          <button class="btn btn-info btn-sm" style="width: 100%;  "  id="btnt" type="submit"
+          <button class="btn btn-info btn-sm" style="width: 100%; background:royalblue; "  id="btnt" type="submit"
           onClick="this.form.submit();" >
           <i class="fa fa-heart" style="color: red;"></i> &nbsp;Wishlist</button></form></p>  
             </div>
@@ -223,19 +230,7 @@
         } 
     } 
     }
-/*
-for(room=0; room<no_of_rooms; room++)
-{   
-    for(i=0;i<4;i++)
-    {
-        if(room[i]==0)
-        {
-        room[i]=1;
-        break;
-        }
-    }
-    
-} */
+
     </script> 
     
  

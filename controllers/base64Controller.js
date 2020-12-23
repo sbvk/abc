@@ -8,8 +8,9 @@ var FBXLoader = require('three-fbx-loader');
 const { findById } = require('../models/photo.model');
 var loader = new FBXLoader(); 
 var scene = new THREE.Scene();
+var Cartlist=require('../models/cartlist.model');
 
-router.get('/',(_req,res)=>{ var mysort = { date: -1 };
+router.get('/',(req,res)=>{ var mysort = { date: -1 };
     Image.find({}, (err, results) => {
         if (err) throw err
         var thumb = []
@@ -20,13 +21,21 @@ router.get('/',(_req,res)=>{ var mysort = { date: -1 };
             //cap.push(result.img.data.toString('base64'));
             //cap.push(result.name);
         }
-        res.render('base/3dm', {
-            thumb
-            
-            //cap: cap
-           
-        })
+        var ct;
+        Cartlist.countDocuments({id:req.user},function(err,ct){
+            if(err){
+                console.log(err);
+            }
+            console.log(ct);
+       
+            res.render('base/3dm', {
+                thumb, ct:ct
+               
+            })
+    })
+       
       })
+      
     /*
     Image.findById('5f92802573b14f5e64635327', function(err, result) {
         if (err) throw (err);

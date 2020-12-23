@@ -7,8 +7,9 @@ const { findById } = require('../models/wishlist.model');
 var emp=new Image();
 var Wish=require('../models/wish.model');
 var Wishlist=require('../models/wishlist.model');
+const { ensureAuthenticated } = require('../config/checkAuth');
 
-router.get('/', function(req,res,next){
+router.get('/',ensureAuthenticated, function(req,res,next){
     var mysort = { date: -1 };
     Wishlist.find({id:req.user},function(err,orders){
         if(err){
