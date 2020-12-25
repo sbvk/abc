@@ -12,6 +12,6 @@ module.exports={
             return next();
 
         }
-        res.redirect('/dashboard1');
+         res.redirect('/dashboard1');
     }
 };

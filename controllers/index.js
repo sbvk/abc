@@ -12,6 +12,7 @@ router.get('/',(_req,res)=>{
 router.get('/dashboard',ensureAuthenticated, (req,res)=> {
     
     res.render('userdash/dash', {
+    _id:req.user._id,
     name: req.user.firstname,
     lname: req.user.lastname,
     email: req.user.email,
