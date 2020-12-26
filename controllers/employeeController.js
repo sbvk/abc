@@ -3,7 +3,7 @@ var router=express.Router();
 const mongoose=require('mongoose');
 const Customer=mongoose.model('Customer');
 const Image=mongoose.model('Image');
-const bcrypt=require('bcryptjs');
+const bcrypt=require('bcrypt-nodejs');
 var emp=new Image();
 router.get('/',(_req,res)=>{
     res.render("employee/addOrEdit",{
@@ -24,12 +24,14 @@ function insertRecord(req,res){
     employee.contact=req.body.contact;
     employee.email=req.body.email;
     employee.password=req.body.password;
-    bcrypt.hash(employee.password, 10, function(err, hash) {
+    bcrypt.genSalt(10, function(salt) {
+    bcrypt.hash(employee.password, salt,null, function(err, hash) {
         if (err) {
             return next(err);
         }
         employee.password = hash;
       });
+    });
     
     var query=req.body.email;
     
