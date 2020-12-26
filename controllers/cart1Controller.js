@@ -6,6 +6,7 @@ const { findById } = require('../models/photo.model');
 var emp=new Image();
 var Cart=require('../models/cart.model');
 var Cartlist=require('../models/cartlist.model');
+const Cartlist1=mongoose.model('Cartlist');
 const { ensureAuthenticated } = require('../config/checkAuth');
 //var Wishlist1=mongoose.model('Wishlist');
 
@@ -34,26 +35,101 @@ router.get('/:_id',ensureAuthenticated,function(req,res,next){
             firstname:req.user.firstname,
             date: new Date()  
 
-        }); /*
-        Wishlist1.find({$and : [{wish:req.session.wish},{id:req.user}]},function(err,docs){
-            if(!err) 
-            console.log("already added");
+        }); var cid=req.user._id;
+        Cartlist1.find({id:cid},function(err,docs){
+            if(docs) 
+            {  
+                var car=req.session.cart;
+                //console.log(docs);
+                var pro1=Object.values(car);
+                var p1=Object.entries(pro1);
+                var pq1=Object.values(p1[0]);
+                var s1=Object.values(pq1);
+                var t1=s1[1];
+                var g1=Object.values(t1);
+                var h1=g1[0];
+                var o1=h1.item._id;
+                    console.log(o1); 
+                    var k=[];
+                docs.forEach(function(wi)
+                {
+                    var pro=Object.values(wi.cart.items);
+                    var p=Object.entries(pro);
+                    var pq=Object.values(p[0]);
+                    var pp=pq[1];
+                    var pr=pp.item._id;
+                    console.log(pr);
+                    var mn;
+                    mn=pr.equals(o1); 
+                    k.push(mn);
+                    console.log(k);
+                 
+                        /*
+                        console.log("new wish");
+                        wishlist.save(function(err,result){
+                            if(err){
+                                console.log(err);
+                            }
+                            else {
+                            console.log('saved');
+                            req.flash('success','saved');
+                            req.session.wish=null;
+                            res.redirect('/base');
+                            
+                        }
+                        }); */
+                    
+                    
+                }) 
+                    
+                function found(arr, obj) {
+                    for (var i = 0; i < arr.length; i++) {
+                      if (arr[i] == obj) return true;
+                    }
+                  }
+                   if(found(k,true)==true)
+                   {
+                    console.log("already added");
+                    req.session.cart=null;
+                    res.redirect('/base');
+                   }
+                   
+                   else
+                   {    
+                    console.log("new cart"); 
+                    cartlist.save(function(err,result){
+                     if(err){
+                         console.log(err);
+                     }
+                     else {
+                     console.log('saved');
+                     req.flash('success','saved');
+                     req.session.cart=null;
+                     res.redirect('/base');
+                 }
+                 }); 
+             } 
+                    
+                //console.log("already added"); */
+            }  
+           
             else
-            //console.log("new");
-            {
-                wishlist.save(function(err,result){
+            
+            {    
+                   console.log("new user"); 
+                cartlist.save(function(err,result){
                     if(err){
                         console.log(err);
                     }
                     else {
                     console.log('saved');
                     req.flash('success','saved');
-                    req.session.wish=null;
+                    req.session.cart=null;
                     res.redirect('/base');
                 }
-                });
-            }
-         });*/
+                }); 
+            } 
+         }); /*
         cartlist.save(function(err,result){
             if(err){
                 console.log(err);
@@ -64,7 +140,7 @@ router.get('/:_id',ensureAuthenticated,function(req,res,next){
             req.session.cart=null;
             res.redirect('/base');
         }
-        }); 
+        }); */
    
     }
      }); 

@@ -35,7 +35,7 @@
   opacity: 0.7;
 }
 .dropbtn {
-  background-color: transparent;
+  background-color: grey;
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -97,18 +97,18 @@
         <li class="nav-item"><a class="nav-link" href="#" ><span class="fa fa-list fa-lg"></span> Premium Models</a></li> 
         <li class="nav-item"><a class="nav-link" href="/con" ><span class="fa fa-address-card fa-lg"></span> Contact Us</a></li>
     </ul></div>
-     <div class="col-2 col-sm-3"> 
-                <div style="color: white;"><div class="dropdown"> <button class="dropbtn"><img src="http://localhost:3000/sett.png"
-                style="width:20px;"></button>
+     
+                <div style="color: white;"><div class="dropdown"> <button class="btn btn-secondary"><img src="https://model3ddd.herokuapp.com/sett.png"
+                style="width:20px;">&nbsp;&nbsp;Settings</button>&nbsp;&nbsp;
                 <div class="dropdown-content">
                    <a>{{name}}&nbsp;{{lname}}</a>
                   <a href="/edit">Edit Profile</a>
                     <a href="/userpass">Change Password</a>
                     <a href="#" id="loginid">Delete Account</a>
                 </div>
-                </div></div> </div> <div class="col-2"> 
+                </div></div>  
                
-                <a href="/auth/logout" class="btn btn-primary">Logout</a></div> 
+                <a href="/auth/logout" class="btn btn-primary">Logout</a>
     
 
 </div></nav>
