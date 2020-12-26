@@ -2,7 +2,7 @@ const express=require('express');
 var router=express.Router();
 const mongoose=require('mongoose');
 const Customer=mongoose.model('Customer');
-const bcrypt=require('bcryptjs');
+const bcrypt=require('bcrypt-nodejs');
 router.get('/',function(req,res){
     
        res.render('userpw/userpw'); 
@@ -17,15 +17,13 @@ router.get('/',function(req,res){
        }
        else {
         bcrypt.compare(req.body.current, req.user.password, (err, isMatch)=>
-        {   bcrypt.hash(req.body.current, 10, function(err, hash){
-            console.log(req.user.password);
-            console.log(hash);console.log(req.body.new);console.log(req.body.confirm);
-
-        })
+        {  
+            
             if (isMatch) 
            {
              if(req.body.new==req.body.confirm)
-             { bcrypt.hash(req.body.new, 10, function(err, hash) {
+             { bcrypt.genSalt(10, function(salt) {
+                 bcrypt.hash(req.body.new, salt, null, function(err, hash) {
                 if (err) {
                     return next(err);
                 }
@@ -43,7 +41,7 @@ router.get('/',function(req,res){
                             res.render('userpw/passer1');
                         } 
                     });
-              }); 
+              }); });
                 
  
              }
