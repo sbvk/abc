@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt-nodejs');
 const mongoose=require('mongoose');
 const Customer=mongoose.model('Customer');
 const Admin=mongoose.model('Admin');
+
 //------------ Local User Model ------------//
  require('../models/employee.model');
  require('../models/admin.model');
@@ -34,7 +35,7 @@ module.exports = function (passport) {
                         }
                     });*/
 
-                    return done(null, false, { message: 'This email ID is not registered' });
+                    return done(null, false, { message: "This email ID is not registered" });
                 
                     
                 }
@@ -45,7 +46,7 @@ module.exports = function (passport) {
                     if (isMatch) {
                         return done(null, customer);
                     } else {
-                        return done(null, false, { message: 'Password incorrect! Please try again.' });
+                        return done(null, false, { message: "Password incorrect! Please try again." });
                     }
                 }); }
                 
@@ -70,7 +71,7 @@ module.exports = function (passport) {
                     return done(null, customer); 
                    
                 }   else{
-                    console.log('nopppp');
+                    return done(null, false, { message: "Password incorrect! Please try again." });
                 
                 } }
                 

@@ -3,13 +3,14 @@ var router=express.Router();
 const mongoose=require('mongoose');
 const Admin1=mongoose.model('Admin');
 const Admin=require('../models/admin.model');
-router.get('/',(req,res)=>{
+const { ensureAuthenticated } = require('../config/checkAuth1');
+router.get('/',ensureAuthenticated,(req,res)=>{
 
 res.render('pass1/pass');
 
 });
 
-router.post('/pass2',(req,res)=>{
+router.post('/pass2',ensureAuthenticated,(req,res)=>{
    var id=req.user._id;
     Admin1.find(id,(err,docs)=>{
       if(err) {
@@ -30,22 +31,23 @@ router.post('/pass2',(req,res)=>{
                         } 
                         else{ 
                             console.log("Updated Password : ", docs); 
-                            res.render('pass1/passer');
+                            req.flash('success','Password changed successfully!' );
+                            req.logout();
+                            res.redirect('/admin');
                         } 
                     });
 
             }
             else
             {   
-                req.flash('confirm','New and confirm passwords dont match' );
-                res.send(req.flash('confirm'));
-                console.log("passwords dont match");
+                req.flash('error','New and confirm passwords dont match' );
+                  console.log("passwords dont match");
+                  res.redirect('/pass');
             }
           }else {
-            req.flash('pass','Current password is wrong' );
-            res.send(req.flash('pass'));
-              console.log("current password wrong,",);
-              //res.redirect('/pass');
+            req.flash('error','Current password is wrong' );
+            console.log("current password wrong,",);
+              res.redirect('/pass');
           }
        
       }

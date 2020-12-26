@@ -39,7 +39,7 @@ router.get('/',ensureAuthenticated, function(req,res,next){
   
 
 });
-router.post('/checkout', function(req,res,next){
+router.post('/checkout',ensureAuthenticated, function(req,res,next){
    
         //var cart=req.session.cart;
        
@@ -118,7 +118,7 @@ router.post('/checkout', function(req,res,next){
 });
 
 });
-router.post('/place', function(req,res,next){
+router.post('/place',ensureAuthenticated, function(req,res,next){
     var pid=req.user._id;var i=0;
     Cartlist1.find({id:pid},function(err,docs){
       docs.forEach(function(rep){
@@ -159,7 +159,6 @@ router.post('/place', function(req,res,next){
                 else{ 
                     console.log("Deleted : ", docs); 
                     console.log('ordered');
-                    req.flash('success','bought');
                     req.session.cart=null;
                     //res.redirect('/icart1');
                 } //res.redirect('/myord');
@@ -170,12 +169,13 @@ router.post('/place', function(req,res,next){
     
      }
 });     
-});res.redirect('/myord');
-
+});
+req.flash('success','Order placed successfully!');
+res.redirect('/myord');
 });
 
 
-router.post('/reduce/:_id',function(req,res,next){
+router.post('/reduce/:_id', ensureAuthenticated,function(req,res,next){
     var pid=req.params._id;
     Cartlist1.findByIdAndDelete(pid, function (err, docs) { 
         if (err){ 
@@ -183,14 +183,18 @@ router.post('/reduce/:_id',function(req,res,next){
         } 
         else{ 
             console.log("Deleted : ", docs); 
+           
+            req.flash('success','Removed item from cart');
+            res.redirect('/icart1');
+           
         } 
     }); 
    
-    res.redirect('/icart1');
+    //res.redirect('/icart1');
    
  });
 
- router.post('/remove',function(req,res,next){
+ router.post('/remove',ensureAuthenticated,function(req,res,next){
   
    Cartlist1.deleteMany({id:req.user},function(err,docs){
     if(err){
@@ -199,9 +203,11 @@ router.post('/reduce/:_id',function(req,res,next){
     
         else{ 
             console.log("Deleted : ", docs); 
+            res.redirect('/icart1');
+            req.flash('success','Removed all items from cart');
         } 
     });
-    res.redirect('/icart1');
+   
     
 }); 
     

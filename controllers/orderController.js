@@ -37,10 +37,12 @@ router.post('/reduce/:_id',function(req,res,next){
         } 
         else{ 
             console.log("Deleted : ", docs); 
+            req.flash('success','Removed item from wishlist');
+            res.redirect('/ord');
         } 
     }); 
    
-    res.redirect('/ord');
+   
    
  });
 
@@ -53,9 +55,12 @@ router.post('/reduce/:_id',function(req,res,next){
     
         else{ 
             console.log("Deleted : ", docs); 
+            res.redirect('/ord');
+            req.flash('success','Removed all items from wishlist');
+           
         } 
     });
-    res.redirect('/ord');
+    
     
 }); 
    /*

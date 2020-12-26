@@ -56,12 +56,13 @@ app.use(flash());
 
 
 app.use(function(req,res,next){
-res.locals.success_msg=req.flash('success_msg');
-res.locals.error=req.flash('error_msg');
+res.locals.success=req.flash('success');
+//res.locals.error=req.flash('error_msg');
 res.locals.error=req.flash('error');
+res.locals.message=req.flash('message');
 res.locals.login=req.isAuthenticated();
 res.locals.session=req.session;
-res.locals.error=req.flash('pass');
+//res.locals.error=req.flash('pass');
 next();
 });
 

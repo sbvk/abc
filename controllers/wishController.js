@@ -89,6 +89,7 @@ router.post('/:_id',ensureAuthenticated,function(req,res,next){
                    if(found(k,true)==true)
                    {
                     console.log("already added");
+                    req.flash('error','Already added to wishlist');
                     req.session.wish=null;
                     res.redirect('/base');
                    }
@@ -102,7 +103,7 @@ router.post('/:_id',ensureAuthenticated,function(req,res,next){
                      }
                      else {
                      console.log('saved');
-                     req.flash('success','saved');
+                     req.flash('success','Added to wishlist');
                      req.session.wish=null;
                      res.redirect('/base');
                  }
@@ -122,7 +123,7 @@ router.post('/:_id',ensureAuthenticated,function(req,res,next){
                     }
                     else {
                     console.log('saved');
-                    req.flash('success','saved');
+                    req.flash('success','Added to wishlist');
                     req.session.wish=null;
                     res.redirect('/base');
                 }

@@ -20,8 +20,15 @@ const passport= require('passport');
 });*/
 router.post("/login1", passport.authenticate('customer', { 
     successRedirect: "/ind/dashboard", 
-    failureRedirect: "/login"
+    failureRedirect: "/login",
+    failureFlash : true
 }), function (req, res) { 
+    if(!customer) 
+    {   
+        res.redirect('/login');
+        req.flash('message'); 
+    }
+    
 }); 
 /*
 router.post("/login3", passport.authenticate('admin', { 
@@ -33,21 +40,27 @@ router.post("/login3", passport.authenticate('admin', {
 
 router.get('/logout',(req,res)=>{
     req.logout();
-    req.flash('success_msg', 'You are logged out');
+    req.flash('success', 'You are logged out');
     res.redirect('/login');
 
 });
 router.post("/login3", passport.authenticate('admin', { 
     successRedirect: "/ind1/dashboard1", 
-    failureRedirect: "/admin"
+    failureRedirect: "/admin",
+    failureFlash:true
 }), function (req, res) { 
+    if(!customer) 
+    {   
+        res.redirect('/admin');
+        req.flash('message'); 
+    }
 }); 
 //------------ Logout GET Handle ------------//
 
 router.get('/logout1',(req,res)=>{
     req.logout();
-    req.flash('success_msg', 'You are logged out');
-    res.redirect('/admin');
+     req.flash('success', 'You are logged out');
+     res.redirect('/admin');  
 
 });
 module.exports = router;

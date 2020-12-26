@@ -3,12 +3,13 @@ var router=express.Router();
 const mongoose=require('mongoose');
 const Customer=mongoose.model('Customer');
 const bcrypt=require('bcrypt-nodejs');
-router.get('/',function(req,res){
+const { ensureAuthenticated } = require('../config/checkAuth');
+router.get('/',ensureAuthenticated,function(req,res){
     
        res.render('userpw/userpw'); 
        
  });
- router.post('/pass2',(req,res)=>{
+ router.post('/pass2',ensureAuthenticated,(req,res)=>{
     var id=req.user._id;
     
      Customer.find(id,(err,docs)=>{
@@ -38,7 +39,9 @@ router.get('/',function(req,res){
                         } 
                         else{ 
                             console.log("Updated Password : ", docs); 
-                            res.render('userpw/passer1');
+                            //res.render('userpw/passer1');
+                            req.flash('success','Password changed successfully!' );
+                            res.redirect('/login');
                         } 
                     });
               }); });
@@ -47,14 +50,14 @@ router.get('/',function(req,res){
              }
              else
              {   
-                 req.flash('confirm','New and confirm passwords dont match' );
-                 res.send(req.flash('confirm'));
+                 req.flash('error','New and confirm passwords dont match' );
                  console.log("passwords dont match");
+                 res.redirect('/userpass');
              }
            }else {
-             req.flash('pass','Current password is wrong' );
-             res.send(req.flash('pass'));
+             req.flash('error','Current password is wrong' );
                console.log("current password wrong,",);
+               res.redirect('/userpass');
                //res.redirect('/pass');
            }
         });

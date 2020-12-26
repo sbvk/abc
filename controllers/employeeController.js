@@ -39,11 +39,16 @@ function insertRecord(req,res){
         if(err) console.log(err);
         if (doc){
         console.log('This has already been saved');
-        res.send('in use')
+        req.flash('error','Email-id already in use');
+        res.redirect('/employee');
         } else {
         employee.save((err,doc)=>{
             if(!err)
-                res.render('employee/dashb')
+            {   
+                req.flash('success','Signed up successfully!');
+                res.redirect('/login');
+            }
+               
             else{
                 console.log('error in record inser:'+err);
                 }

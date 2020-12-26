@@ -27,10 +27,11 @@ router.post('/reduce/:_id',function(req,res,next){
         } 
         else{ 
             console.log("Deleted : ", docs); 
+            req.flash('success','Item deleted successfully!');
+            res.redirect('/dele');
         } 
     }); 
    
-    res.redirect('/dele');
    
  });
  router.post('/update/:_id',function(req,res,next){
@@ -48,11 +49,13 @@ router.post('/reduce/:_id',function(req,res,next){
             } 
             else{ 
                 console.log("Updated User : ", docs); 
+                req.flash('success','Item updated successfully!');
+                res.redirect('/dele');
             } 
         }
     ); 
    
-    res.redirect('/dele');
+    
    
  });
 module.exports=router;

@@ -36,8 +36,11 @@ function insertRecord1(req,res,err){
     con.email=req.body.email;
     con.message=req.body.message;
     con.save((err,doc)=>{
-        if(!err)
-            res.redirect('/')
+        if(!err){
+            req.flash('success','Message submitted successfully!');
+            res.redirect('/base');
+        }
+          
         else{
             console.log('error in record inser:'+err);
             }

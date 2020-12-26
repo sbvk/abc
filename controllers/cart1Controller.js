@@ -90,6 +90,7 @@ router.get('/:_id',ensureAuthenticated,function(req,res,next){
                    if(found(k,true)==true)
                    {
                     console.log("already added");
+                    req.flash('error','Already added to cart');
                     req.session.cart=null;
                     res.redirect('/base');
                    }
@@ -103,7 +104,7 @@ router.get('/:_id',ensureAuthenticated,function(req,res,next){
                      }
                      else {
                      console.log('saved');
-                     req.flash('success','saved');
+                     req.flash('success','Added to cart');
                      req.session.cart=null;
                      res.redirect('/base');
                  }
@@ -123,7 +124,7 @@ router.get('/:_id',ensureAuthenticated,function(req,res,next){
                     }
                     else {
                     console.log('saved');
-                    req.flash('success','saved');
+                    req.flash('success','Added to cart');
                     req.session.cart=null;
                     res.redirect('/base');
                 }

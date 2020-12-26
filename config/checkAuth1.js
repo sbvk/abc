@@ -3,8 +3,7 @@ module.exports={
         if(req.isAuthenticated()){
             return next();
         }
-        req.flash('error_msg','pls login');
-        res.send(req.flash('error_msg'));
+        req.flash('error','Please login to continue');
         res.redirect('/admin');
     },
     forwardAuthenticated:function(req,res,next){

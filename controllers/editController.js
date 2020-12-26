@@ -42,7 +42,8 @@ router.get('/delete/:_id',function(req,res,next){
             console.log("Deleted : ", docs); 
         } 
     }); 
-    res.redirect('/');
+    req.flash('success','Account deleted successfully!');
+    res.redirect('/base');
    
  });
  router.post('/update/:_id',function(req,res,next){
@@ -64,7 +65,7 @@ router.get('/delete/:_id',function(req,res,next){
             } 
         }
     ); 
-   
+    req.flash('success','Updated details successfully!');
     res.redirect('/edit');
    
  });
