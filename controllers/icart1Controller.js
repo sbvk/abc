@@ -203,8 +203,8 @@ router.post('/reduce/:_id', ensureAuthenticated,function(req,res,next){
     
         else{ 
             console.log("Deleted : ", docs); 
-            res.redirect('/icart1');
             req.flash('success','Removed all items from cart');
+            res.redirect('/icart1');
         } 
     });
    
