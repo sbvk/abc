@@ -62,7 +62,9 @@
         <div class="row row-content">
              <div class="col-2 col-sm-3"> &nbsp;</div><div class="col-10 col-sm-4">
             <B><h1>Your wishlist &nbsp;<i class="fa fa-heart" style="color: red; size:50%;"></i></h1> </B>
-            {{#if success}}<div class="alert alert-primary"  role="alert">{{success}}</div>{{/if}}
+            {{#if success}}<div class="alert alert-primary"  role="alert">{{success}}</div> 
+            {{else}} {{#if error}}<div class="alert alert-danger"  role="alert">{{error}}</div>
+            {{else}}{{/if}}{{/if}}
             </div>
             <br>
 {{#if orders}}
