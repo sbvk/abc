@@ -1,6 +1,7 @@
 require('./models/db');
 require('./models/photo.model');
 require('./models/admin.model');
+require('./models/filter.model');
 const express=require('express');
 const path=require('path');
 const exphbs=require('express-handlebars');
@@ -26,6 +27,7 @@ const delController=require('./controllers/delController');
 const passController=require('./controllers/passController');
 const editController=require('./controllers/editController');
 const userpassController=require('./controllers/userpassController');
+const filterController=require('./controllers/filterController');
 const ind=require('./controllers/index');
 const ind1=require('./controllers/index1');
 const auth=require('./controllers/auth');
@@ -80,7 +82,7 @@ app.listen(process.env.PORT || 3000,function(){
     console.log('express server started at port:3000');
 });
 
-
+var Filter=mongoose.model('Filter');
 
 var storage=multer.diskStorage({
     destination:(req,file,cb)=>{
@@ -100,18 +102,27 @@ const { timeStamp } = require('console');
 const Image=mongoose.model('Image');
 app.get('/upl', (req, res) => { 
     Image.find({}, (err, items) => { 
+        var cap1 = [];
+        var mysort = { name: 1 };
         if (err) { 
             console.log(err); 
         } 
         else {  
-           
+            
             for (var result of items) {
               var thumb=result.img.data.toString('base64');
             var name=result.name;
             var desc=result.desc;
             var price=result.price;
+            var filter=result.filter;
             }
-            res.render('pic/3dmodel', { item: thumb, name:name, desc:desc, price:price }); 
+            Filter.find(function(err,docu){
+                if (err) console.log(err);
+                else for (var result1 of docu) {
+                    cap1.push(result1);    
+                }
+            res.render('pic/3dmodel', { item: thumb, name:name, desc:desc, price:price, filter:filter, cap1 }); 
+            }).sort(mysort);
             
         } 
     }); 
@@ -129,6 +140,7 @@ app.post('/uploadfile', upload.single('image'), (req, res, next) => {
             contentType: 'image/fbx',
             base: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)).toString('base64')
         },
+        filter:req.body.filters,
         date: new Date(),
         
     } 
@@ -176,6 +188,7 @@ app.use('/dele',delController);
 app.use('/pass',passController);
 app.use('/edit',editController);
 app.use('/userpass',userpassController);
+app.use('/filter',filterController);
 app.use('/ind',ind);
 app.use('/auth',auth);
 app.use('/ind1',ind1);

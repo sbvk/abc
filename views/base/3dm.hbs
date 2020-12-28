@@ -10,7 +10,13 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="bootstrap-social/bootstrap-social.css">
-  
+    <script src="three.js"></script>
+    <script src="inflate.min.js"></script>
+    <script src="FBXLoader.js"></script>
+    <script src="OrbitControls.js"></script>
+    <style>
+    	canvas {width: 20%; height: 20%;}
+    </style>
 </head>
 
 <body>
@@ -24,7 +30,7 @@
     <ul class="navbar-nav mr-auto">
         <li class="nav-item"><a class="nav-link" href="index.html" ><span class="fa fa-home fa-lg"></span> Home</a></li>
         <li class="nav-item"><a class="nav-link" href="aboutus.html" ><span class="fa fa-info fa-lg"></span> About Us</a></li>
-        <li class="nav-item active"><a class="nav-link" href="#" ><span class="fa fa-list fa-lg"></span> 3D Models</a></li>
+        <li class="nav-item active"><a class="nav-link" href="/base" ><span class="fa fa-list fa-lg"></span> 3D Models</a></li>
         <li class="nav-item"><a class="nav-link" href="#" ><span class="fa fa-list fa-lg"></span> Premium Models</a></li> 
         <li class="nav-item"><a class="nav-link" href="/con" ><span class="fa fa-address-card fa-lg"></span> Contact Us</a></li>
     </ul>
@@ -87,24 +93,33 @@
              <div class="row">
                 <ol class="col-12 breadcrumb">
                 <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
-                <li class="breadcrumb-item active">3d Models</li>
+                <li class="breadcrumb-item active"><a href="/base">3d Models</a></li>
             </ol>
-            
-            <div class="col-5 col-sm-4">
-               <h3>3d Models</h3>
-              
-            </div><div class="col-6 col-sm-3">{{#if success}}<div class="alert alert-success"  role="alert">{{success}}</div>
+            <div class="col-3 col-sm-4"><form id="fil" method="POST" action="/filter">
+                <select id="filters" name="filters" style="max-width: 200px; overflow-x:auto; height:100px;" multiple required>
+               
+                    {{#each cap1}}
+                <option value="{{#each this}}{{this.name}}{{/each}}">{{#each this}}{{this.name}}{{/each}}</option> {{/each}}
+                </select>
+                <button class="btn btn-info btn-md"  style=" background:orange; " id="sub" type="submit" >
+                    <i class="fa fa-filter">&nbsp;Filter</i></button>
+                </form>
+             </div>
+            <div class="col-sm-4">{{#if success}}<div class="alert alert-success" style="overflow-x: auto;" role="alert">
+             {{success}}</div>
             {{else}} {{#if error}}<div class="alert alert-danger"  role="alert">{{error}}</div>
             {{else}}{{/if}}{{/if}}
             </div>
-            <div class="col-3 col-sm-5">
+            <div class="col-sm-4">
             <span class="fa fa-search" style="position: absolute;
     z-index: 2;
     display: block;
     padding-left: 0.5rem;
     line-height: 1.8rem;"></span>
              <input type="text" id="myInput" style="padding-left: 2.375rem;" onkeyup="myFunction()" placeholder="Search for models.."> 
-             </div>  <hr></div>
+             </div>
+             
+              <hr></div>
              <table id="myTable">  
                  <!--
    <tr><div class="row row-content">
@@ -121,7 +136,7 @@
           onClick="this.form.submit();" >
           <i class="fa fa-heart" style="color: red;"></i> &nbsp;Wishlist</button></form></p>  
             </div>
-    {{/each}}</div></tr> -->
+    {{/each}}</div></tr> --> <script src="script.js"></script>
      <tr><div class="row row-content">
   {{#each thumb}}
      <div class="card" id="card">
@@ -237,7 +252,15 @@
         } 
     } 
     }
-
+    document.getElementById('sub').onclick = function() {
+  var selected = [];
+  for (var option of document.getElementById('filters').options) {
+    if (option.selected) {
+      selected.push(option.value);
+    }
+  }
+ console.log(selected);
+}
     </script> 
     
  

@@ -11,7 +11,7 @@ var photoSchema = new mongoose.Schema({
       contentType:String,
       base:Buffer
   },
-
+  filter:Array,
   date: String,
  
   });
