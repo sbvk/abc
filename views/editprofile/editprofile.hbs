@@ -15,15 +15,18 @@
    <body>
     <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
         <div class="col-10 col-sm-9" style="text-align: center;">
-      <h1 class="word"> Your Profile</h1></div>
+      <h1 class="word"> Your Profile  </h1></div>
       <div class="col-2 col-sm-3">
       <a href="/ind/dashboard" class="btn btn-primary">Back</a></div> </nav>
         <div class="container">
     <div class="row row-content">
-        {{#if success}}<div class="col-md-9"><div class="alert alert-success"  role="alert">{{success}}</div></div>
+       
+            <div class="col-4 col-md-4"></div><div class="col-8 col-md-8">
+            <img src="av.png" style="width: 150px; padding-bottom: 20px;"></div> 
+          {{#if success}}<div class="col-md-10"><div class="alert alert-success"  role="alert">{{success}}</div></div>
             {{else}} {{#if error}}<div class="col-md-9"><div class="alert alert-danger"  role="alert">{{error}}</div></div>
             {{else}}{{/if}}{{/if}}
-         <div class="col-12 col-md-9">
+         <div class="col-12 col-md-10">
              <form name="myForm" action="/edit/update/{{_id}}" method="post">
                  <div class="form-group row">
                      <label for="firstname" class="col-md-2 col-form-label">First Name</label>
@@ -57,8 +60,8 @@
                     
                      
                          
-                         <div class="form-group row">
-                             <div class="offset-md-2 col-md-10">
+                         <div class="form-group row"><div class="col-5 col-sm-5"></div>
+                             <div class="col-5 ">
                                  <button type="submit"  class="btn btn-primary"> Update </button>
                                  
                              </div>
@@ -68,7 +71,7 @@
              </form>
          </div>
          
-    </div> </div>
+    </div></div>
     
 
     <script src="C:/Users/Admin/web1/jquery/dist/jquery.slim.min.js"></script>

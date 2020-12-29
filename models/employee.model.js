@@ -18,7 +18,9 @@ var employeeSchema=new mongoose.Schema({
     },
     date:{
         type:String
-    }
+    },
+    resetPasswordToken: String,
+    resetPasswordExpires: Date
 }
 );
 mongoose.model('Customer',employeeSchema);

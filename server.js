@@ -28,11 +28,13 @@ const passController=require('./controllers/passController');
 const editController=require('./controllers/editController');
 const userpassController=require('./controllers/userpassController');
 const filterController=require('./controllers/filterController');
+const forgotController=require('./controllers/forgotController');
+const resetController=require('./controllers/resetController');
 const ind=require('./controllers/index');
 const ind1=require('./controllers/index1');
 const auth=require('./controllers/auth');
 const fs = require('fs');
-const bcrypt=require('bcryptjs');
+const bcrypt=require('bcrypt-nodejs');
 const { ppid } = require('process');
 const passport= require('passport');
 var flash=require('connect-flash');
@@ -43,6 +45,9 @@ var MongoStore=require('connect-mongo')(session);
 var cookieParser = require('cookie-parser');
 var app=express();
 require('./config/passport')(passport);
+var nodemailer = require('nodemailer');
+var async = require('async');
+
 app.use(cookieParser());
 app.use(session({
     secret: 'secret',
@@ -83,7 +88,7 @@ app.listen(process.env.PORT || 3000,function(){
 });
 
 var Filter=mongoose.model('Filter');
-
+const Customer=mongoose.model('Customer');
 var storage=multer.diskStorage({
     destination:(req,file,cb)=>{
         cb(null,'uploads')
@@ -166,7 +171,80 @@ app.post('/uploadmultiple', upload.array('myFiles',20),(req,res,next)=>{
     res.send(files);
 }) */
 
-
+app.get('/reset/:token', function(req, res) {
+    Customer.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
+      if (!user) {
+        req.flash('error', 'Password reset token is invalid or has expired.');
+        return res.redirect('/');
+      } 
+      res.render('forgot/reset.hbs', {
+        user: req.user
+      });
+    });
+  });
+  app.post('/reset/:token', function(req, res) {
+    async.waterfall([
+      function(done) {
+        Customer.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
+          if (!user) {
+            req.flash('error', 'Password reset token is invalid or has expired.');
+            return res.redirect('/forgot');
+          }
+          if(req.body.password==req.body.confirm)
+             { bcrypt.genSalt(10, function(salt) {
+                 bcrypt.hash(req.body.password, salt, null, function(err, hash) {
+                if (err) {
+                    return next(err);
+                }
+            
+          user.password = hash;
+          user.resetPasswordToken = undefined;
+          user.resetPasswordExpires = undefined;
+  
+          user.save(function(err) {
+            req.logIn(user, function(err) {
+              done(err, user);
+            });
+          });
+        })
+    })
+}
+else 
+{
+    return res.render('forgot/reset.hbs',{
+        error:'New and confirm passwords dont match'
+    });
+}
+        });
+      },
+      function(user, done) {
+        var smtpTransport = nodemailer.createTransport({
+          service: 'Gmail',
+          auth: {
+               
+            user: 'custardmodels@gmail.com',
+            pass: 'Custard@123', 
+          
+      }
+        });
+        var mailOptions = {
+          to: user.email,
+          from: 'custardmodels@gmail.com',
+          subject: 'Your password has been changed',
+          text: 'Hello,\n\n' +
+            'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n'
+        };
+        smtpTransport.sendMail(mailOptions, function(err) {
+          req.flash('success', 'Success! Your password has been changed.');
+          res.redirect('/login');
+          done(err);
+        });
+      }
+    ], function(err) {
+        req.flash('error','Error in recovering password')
+        res.redirect('/login');
+    });
+  });
 
 app.use('/employee',employeeController);
 app.use('/pic',picController);
@@ -189,6 +267,8 @@ app.use('/pass',passController);
 app.use('/edit',editController);
 app.use('/userpass',userpassController);
 app.use('/filter',filterController);
+app.use('/forgot',forgotController);
+app.use('/reset',resetController);
 app.use('/ind',ind);
 app.use('/auth',auth);
 app.use('/ind1',ind1);

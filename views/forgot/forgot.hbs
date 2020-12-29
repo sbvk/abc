@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row row-content">
+<form method="POST" action="/forgot">
+{{#if success}}<div class="col-md-12"><div class="alert alert-success"  role="alert">{{success}}</div></div>
+{{else}} {{#if error}}<div class="col-md-12"><div class="alert alert-danger"  role="alert">{{error}}</div></div>
+{{else}} {{#if message}}<div class="col-md-12"><div class="alert alert-danger"  role="alert">{{message}}</div></div>
+{{else}}{{/if}}{{/if}}{{/if}}
+<div class="form-group row">
+    <label for="email" class="col-md-5 col-form-label">Enter your email registered with this site.</label>
+    <div class="col-10 col-md-7">
+        <input type="text" class="form-control" id="email" name="email" placeholder="Email" autofocus=true
+        pattern="[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*" title="Please enter your email-id" required>
+    <br>
+                     <input type="submit" value="Submit" name="Submit" class="btn btn-primary">
+                 </div>
+            </div></form>
+   </div></div>

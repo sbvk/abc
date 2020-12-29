@@ -16,7 +16,7 @@
   max-height: 300px;
  
   text-align: center;
-  font-family: arial;
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .card button {
@@ -57,15 +57,16 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: black;
-  max-width: 250px;
+  background-color: white;
+  color:chocolate;
+  width: 220px;
   overflow-x: auto;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
 
 .dropdown-content a {
-  color: white;
+  color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -79,6 +80,9 @@
 
 .dropdown:hover .dropbtn {
   background-color: #3e8e41;
+}
+.body{
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 </style>
     </head>
@@ -99,13 +103,15 @@
         <li class="nav-item"><a class="nav-link" href="/con" ><span class="fa fa-address-card fa-lg"></span> Contact Us</a></li>
     </ul></div>
      
-                <div style="color: white;"><div class="dropdown"> <button class="btn btn-secondary"><img src="https://model3ddd.herokuapp.com/sett.png"
+                <div style="color: white;"><div class="dropdown"> <button class="btn btn-secondary">
+                  <img src="https://model3ddd.herokuapp.com/sett.png"
                 style="width:20px;">&nbsp;&nbsp;Settings</button>&nbsp;&nbsp;
                 <div class="dropdown-content">
-                   <a>{{name}}&nbsp;{{lname}}</a>
-                  <a href="/edit">Edit Profile</a>
-                    <a href="/userpass">Change Password</a>
-                    <a href="#" id="loginid">Delete Account</a>
+                  <img src="http://localhost:3000/av.png" style="width: 150px; padding: 10px 10px;"> 
+                  <B> <a style="color: blueviolet;">{{name}}&nbsp;{{lname}}</a></B>
+                  <a href="/edit"><img src="http://localhost:3000/pen.png" style="width: 30px;">&nbsp;&nbsp;Edit Profile</a>
+                  <a href="/userpass"><img src="http://localhost:3000/key.png" style="width: 35px;">&nbsp;&nbsp;Change Password  </a>
+                    <a href="#" id="loginid"><img src="http://localhost:3000/trash.png" style="width: 30px;">&nbsp;&nbsp;Delete Account</a>
                 </div>
                 </div></div>  
                
@@ -137,7 +143,7 @@
           
             <div class="container"> 
                 
-<h1 style="margin-top: 50px;">Welcome {{name}}!</h1>
+<h1 style="margin-top: 50px;"> <img src="http://localhost:3000/wel.png" style="width: 200px;"> {{name}}!</h1>
 
 
                 
