@@ -6,9 +6,6 @@ var cartSchema= new mongoose.Schema({
     qty:{type:Number},
     totalprice:{type:Number},
     email:{type:mongoose.Schema.Types.String, ref:'Customer'},
-    
-   firstname: {type:mongoose.Schema.Types.String, ref:'Customer'},
-    
     date: {type:String}
     });
   

@@ -3,9 +3,9 @@ var router=express.Router();
 const mongoose=require('mongoose');
 const Contactus=mongoose.model('Contactus');
 
-router.get('/',(_req,res)=>{
+router.get('/',(req,res)=>{
     res.render("cont/contactus",{
-        
+        user:req.user
     });
 
 });

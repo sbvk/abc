@@ -4,6 +4,7 @@ const mongoose=require('mongoose');
 const Customer=mongoose.model('Customer');
 const Wishlist=mongoose.model('Wishlist');
 const Cartlist=mongoose.model('Cartlist');
+const Order=mongoose.model('Order');
 
 router.get('/',function(req,res){
     Customer.find(req.user, function(err, results) {
@@ -48,7 +49,7 @@ router.get('/delete/:_id',function(req,res,next){
  });
  router.post('/update/:_id',function(req,res,next){
     var pid=req.user._id;
-    
+    var email=req.user.email;
     Customer.findByIdAndUpdate(pid, {
         firstname: req.body.firstname,
         lastname: req.body.lastname,
@@ -65,6 +66,7 @@ router.get('/delete/:_id',function(req,res,next){
             } 
         }
     ); 
+   
     req.flash('success','Updated details successfully!');
     res.redirect('/edit');
    

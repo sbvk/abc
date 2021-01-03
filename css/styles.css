@@ -23,9 +23,9 @@
   color: floralwhite; }
 
 address {
-  font-size: 80%;
+  font-size: 100%;
   margin: 0px;
-  color: #0f0f0f; }
+  color:white; }
 
 body {
   padding: 50px 0px 0px 0px;
@@ -121,18 +121,15 @@ body {
     top: 320px;
     /* Light Black */background-color: #8c6dc5
   }
-  #twi {
+  #you {
     top: 380px;
     /* Light Black */
   }
-  #you {
-    top: 440px;
-    /* Light Black */
-  }
   #mail {
-    top: 500px;
-    background-color: #555/* Light Black */
+    top: 440px;
+    /* Light Black */background-color: grey
   }
+  
 
   div.gallery {
     border: 6px solid white;
@@ -179,4 +176,25 @@ body {
   border-spacing: 10px;
   }
   
-  
+  .card1 {
+    box-shadow: 0 14px 10px 0 rgba(0, 0, 0, 0.2);
+    background-color:rgb(255,255,255);
+    width: 500px;
+    height: 510px;
+ 
+  margin-bottom: 16px;
+  padding: 20 20px;
+  margin-right: 4%;
+  border-spacing: 10px;
+  }
+  .card2 {
+    box-shadow: 0 14px 10px 0 rgba(0, 0, 0, 0.2);
+    background-color:slateblue;
+    width: 400px;
+    height: 250px;
+ 
+  margin-bottom: 16px;
+  padding: 20 20px;
+  margin-right: 4%;
+  border-spacing: 10px;
+  }

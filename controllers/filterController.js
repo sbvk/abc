@@ -39,7 +39,7 @@ router.post('/', function(req,res){
                 console.log(ct);
                 req.flash('success', 'Filters:'+req.body.filters);
                 res.render('base/3dm', {
-                    thumb, ct:ct, cap1,
+                    thumb, ct:ct, cap1, user:req.user,
                     success: req.flash('success')
                    
                 })

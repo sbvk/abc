@@ -14,7 +14,7 @@
      .card {
   
   max-width: 3000px;
-  max-height: 300px;
+  max-height: 380px;
  
   text-align: center;
   font-family: arial;
@@ -61,13 +61,13 @@ input[type=number]::-webkit-outer-spin-button {
     </ul>
     
     </div> <div class="col-2 col-sm-2"> 
-                <a href="/ind/dashboard" class="btn btn-primary">Back</a></div>
+                <a href="/base" class="btn btn-primary">Back</a></div>
 </div>
 </nav>
 <div class="container"> 
         <div class="row row-content">
              <div class="col-2 col-sm-3"> &nbsp;</div><div class="col-10 col-sm-5">
-            <B><h1>Your cart &nbsp; <i class="fa fa-shopping-cart" style="color:orange; size:50%;"></i> &nbsp;
+            <h1><I>My Cart<img src="cart.gif" style="width: 150px;"></I>
             <span class="badge" style="border-radius: 50%;
     width: 50px;
     height: 50px;
@@ -114,23 +114,27 @@ input[type=number]::-webkit-outer-spin-button {
      </div>   <div class="row row-content">
              <div class="col-6 col-sm-6">
                  <form method="post" action="/icart1/remove/">
-<button class="btn" type="submit" style="width: 100%; background:tomato; color:white;">Empty Cart&nbsp;<i class="fa fa-trash"></i></button>
+<button class="btn" type="submit" style="width: 100%; background:tomato; color:white;">Empty Cart&nbsp;
+    <img src="empty.png" style="width: 30px;">
+</button>
 </form>
 </div><div class="col-6 col-sm-6">
 
-<button class="btn btn-success" form="myform" type="submit" style="width: 100%;">Checkout</button> 
+<button class="btn btn-success" form="myform" type="submit" style="width: 100%;">Checkout&nbsp;
+    <img src="chec.png" style="width: 30px;"></button> 
 </div>
 </div>
  </div>
 {{else}}
 <div class="container">
-<table><div class="row row-content">
-    <div class="col-sm-3"> &nbsp;</div><div class="col-12 col-sm-9"><h3> No items in your cart!</h3></div>
-    <br><br>
-   <div class="col-sm-3"> &nbsp;</div> <div class="col-12 col-sm-9"><br><br>
+<table><div class="row row-content"> 
+    <div class="col-sm-3"> </div>
+    <div class="col-12 col-sm-6"><br><br>
 <div class="card">
-  <a href="/base"><img src="ca.gif" style="width:80%">
-  <p><button>Shop Now!</button></p></a><p>Check out our exclusive models and shop!</p>
+  <a href="/base"><img src="cart3.png" style="width:100%">
+  <p>
+      <B><I><h3>Your Cart is empty!</h3></I></B></p><p>
+      <button href="/base">Shop Now!</button></p></a><p>Check out our exclusive models and shop now!</p>
 </div></div></div></table>
 </div>
 {{/if}}

@@ -14,7 +14,7 @@
      .card {
   
    max-width: 3000px;
-  max-height: 300px;
+  max-height: 400px;
  
   text-align: center;
   font-family: arial;
@@ -55,13 +55,13 @@
     </ul>
     
     </div> <div class="col-2 col-sm-2"> 
-                <a href="/ind/dashboard" class="btn btn-primary">Back</a></div>
+                <a href="/base" class="btn btn-primary">Back</a></div>
 </div>
 </nav>
 <div class="container"> 
         <div class="row row-content">
              <div class="col-2 col-sm-3"> &nbsp;</div><div class="col-10 col-sm-4">
-            <B><h1>Your wishlist &nbsp;<i class="fa fa-heart" style="color: red; size:50%;"></i></h1> </B>
+           <h1><I>My Wishlist&nbsp;<img src="wishh.gif" style="width: 80px;"></I></h1>
             {{#if success}}<div class="alert alert-primary"  role="alert">{{success}}</div>{{/if}}
             </div>
             <br>
@@ -100,14 +100,14 @@
 
 </div> </div>
 {{else}} <div class="container">
-<table><div class="row row-content">
-    <div class="col-sm-3"> &nbsp;</div><div class="col-12 col-sm-9"><h3> No items in your wishlist!</h3></div>
-    <br><br>
-    <div class="col-sm-3"> &nbsp;</div>
-    <div class="col-12 col-sm-9"><br><br>
-<div class="card">
-  <a href="/base"><img src="ca.gif" style="width:80%">
-  <p><button>Shop Now!</button></p></a><p>Check out our exclusive models and shop!</p>
+<table><div class="row row-content"> 
+    <div class="col-sm-3"> </div>
+    <div class="col-12 col-sm-6"><br><br>
+<div class="card" href="/base" >
+  <a href="/base"><img src="wish.jpg" style="width:60%">
+  <p>
+      <B><I><h3><a>No items in your wishlist!</a></h3></I></B></p><p>
+      <button>Shop Now!</button></p></a><p>Check out our exclusive models and shop now!</p>
 </div></div></div></table>
 </div>
 

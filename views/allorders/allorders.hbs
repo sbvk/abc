@@ -29,7 +29,6 @@
         <tr>
         <th>Sr.No</th>
         <th>Ordered By</th>
-        <th>Email-id</th>
         <th>Name</th>
         <th>Item</th>
         <th>Price</th>
@@ -45,7 +44,6 @@
  <td><script type="text/javascript">  {
     document.write(i); i++;
      }</script></td>
-     <td>{{#each this}}{{this.firstname}}{{/each}}</td> 
      <td>{{#each this}}{{this.email}}{{/each}}</td> 
  <td>{{#each this.items}}{{this.item.name}}{{/each}}</td> 
 <td><img src="data:img/fbx;base64,{{#each this.items}}{{this.item.img.base}}{{/each}}"  height="100" width="100"></td>

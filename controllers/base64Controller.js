@@ -37,9 +37,9 @@ router.get('/',(req,res)=>{ var mysort = { date: -1 };
                 console.log(err);
             }
             console.log(ct);
-       
+           
             res.render('base/3dm', {
-                thumb, ct:ct, cap1
+                thumb, ct:ct, cap1, user:req.user,
                
             })
     })

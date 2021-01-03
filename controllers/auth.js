@@ -19,7 +19,7 @@ const passport= require('passport');
 });
 });*/
 router.post("/login1", passport.authenticate('customer', { 
-    successRedirect: "/ind/dashboard", 
+    successRedirect: "/base", 
     failureRedirect: "/login",
     failureFlash : true
 }), function (req, res) { 
