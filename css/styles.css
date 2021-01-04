@@ -180,7 +180,7 @@ body {
   .card2 {
     box-shadow: 0 14px 10px 0 rgba(0, 0, 0, 0.2);
     background-color:slateblue;
-    width: 400px;
+    width: auto;
     height: 200px;
  
   margin-bottom: 16px;
