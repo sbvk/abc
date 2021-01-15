@@ -3,11 +3,7 @@ var router=express.Router();
 const mongoose=require('mongoose');
 const Image=mongoose.model('Image');
 var emp=new Image();
-var THREE = require('three');
-var FBXLoader = require('three-fbx-loader');
 const { findById } = require('../models/photo.model');
-var loader = new FBXLoader(); 
-var scene = new THREE.Scene();
 var Cartlist=require('../models/cartlist.model');
 var Filter=mongoose.model('Filter');
 
