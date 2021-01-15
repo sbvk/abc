@@ -131,7 +131,7 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>&nbsp;&nbsp;
             </div>
             <div class="modal-body">&nbsp;&nbsp;
-                    <a href="/edit/delete/{{_id}}" class="btn btn-danger">Delete</a>
+                    <a {{#each user}}href="/edit/delete/{{this._id}}" {{/each}} class="btn btn-danger">Delete</a>
                    <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button><br>
                      <B>Deleting your account will delete all data related to it permanently. This action cannot be undone.</B>
             </div>
