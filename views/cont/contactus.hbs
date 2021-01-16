@@ -19,23 +19,24 @@
 <body style="background-image: url('bg.jpg');
 background-repeat: no-repeat; background-width:100%;  background-size: cover;
 background-attachment: fixed;">
-    <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <a class="navbar-brand" href="#"><!--<img src="img/logo.png" height="30" width="41">--></a>
-            <div class="collapse navbar-collapse" id="Navbar">
-                <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active"><a class="nav-link"  href="index.html" ><img src="home.png" style="width: 30px;"> Home</a></li>
+   <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+<div class="container">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">  
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#"><img src="icon.PNG" height="30" width="40" ></a>
+    <div class="collapse navbar-collapse"  id="Navbar" >
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item active"><a class="nav-link"  href="index.html#index" ><img src="home.png" style="width: 30px;"> Home</a></li>
         <li class="nav-item active"><a class="nav-link" href="index.html#about" ><img src="ab.png" style="width: 30px;">About Us</a></li>
         <li class="nav-item active"><a class="nav-link" href="/base" ><img src="cube.png" style="width: 30px;"> 3D Models</a></li>
         <li class="nav-item active"><a class="nav-link" href="index.html#service" ><img src="serv.png" style="width: 30px;"> Services</a></li>
         <li class="nav-item active"><a class="nav-link" href="index.html#careers" ><img src="care.png" style="width: 30px;"> Careers</a></li>
         <li class="nav-item active"><a class="nav-link" href="/con" ><img src="cont.png" style="width: 30px;"> Contact Us</a></li>
-                </ul></div>
+    </ul>
                 {{#if user}}
-      <a href="auth/logout" style="color: white;">Logout</a>
+    
+       <a style="color: white;" href="auth/logout"><img src="logout.png" style="width: 30px;">&nbsp;Logout</a>
     {{else}}
                 <span class="navbar-text">
                     <a href="#" id="loginid">
@@ -45,7 +46,7 @@ background-attachment: fixed;">
                      <img src="signup.png" style="width: 30px;"> Signup</a>
                 </span>
                 {{/if}}
-            
+            </div>
         </div>
     </nav>
     <div id="loginModal" class="modal fade" role="dialog">
@@ -68,7 +69,9 @@ background-attachment: fixed;">
             </div>
         </div>
     </div>
-    <header class="jumbotron">
+   <header class="jumbotron" style="background-image: url('bg.jpg');
+    background-repeat: no-repeat;  background-size: cover;
+    background-attachment: fixed;">
         <div class="container">
             <div class="row row-header">
                 <div class="col-12 col-sm-6">
@@ -200,13 +203,13 @@ background-attachment: fixed;">
                 <div class="col-3 offset-1 col-sm-2">
                     <h5 style="color: beige;">Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a style="color: beige;"  href="index.html">Home</a></li>
+                        <li><a style="color: beige;" href="index.html#about">About Us</a></li>
 
-                        <li><a href="/base">3D Models</a></li>
-                        <li><a href="index.html#service">Services</a></li>
-                        <li><a href="index.html#careers">Careers</a></li>
-                        <li><a href="/con">Contact Us</a></li>
+                        <li><a style="color: beige;" href="/base">3D Models</a></li>
+                        <li><a style="color: beige;"  href="index.html#service">Services</a></li>
+                        <li><a style="color: beige;" href="index.html#careers">Careers</a></li>
+                        <li><a style="color: beige;" href="/con">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-sm-5">
@@ -228,7 +231,7 @@ background-attachment: fixed;">
  <div class="row">     <div class="col-4 col-sm-5">&nbsp;</div>
            <div style="color: white;" class="col-8 col-sm-7">  
             <br>
-               <a href="pp.html" >Privacy Policy</a>   
+               <a style="color: beige;"  href="pp.html" >Privacy Policy</a>   
             </div></div><div class="row"><div class="col-sm-4">&nbsp;</div>
             <div style="color: white;"class="col-12 col-sm-8">             
                 
@@ -237,9 +240,7 @@ background-attachment: fixed;">
            </div></div>
         </div>
     </footer>
-    <script src="jquery/dist/jquery.slim.min.js"></script>
-    <script src="popper.js/dist/umd/popper.min.js"></script>
-    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+   
     <script>
         $(document).ready(function(){
                 $("#loginid").click(function(){
@@ -249,9 +250,8 @@ background-attachment: fixed;">
     </script>
     
     <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
-    <script src="jquery/dist/jquery.slim.min.js"></script>
-    <script src="popper.js/dist/umd/popper.min.js"></script>
-    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+  
+    
 </body>
 
 </html>
