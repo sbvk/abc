@@ -216,7 +216,7 @@ animation: fadeIn 1s ease-in forwards;
   
   .card2 {
     box-shadow: 0 14px 10px 0 rgba(0, 0, 0, 0.2);
-    background-color:slateblue;
+    background-color:transparent;
     width: auto;
     height: auto;
  
