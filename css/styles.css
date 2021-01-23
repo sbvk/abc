@@ -107,9 +107,8 @@ animation: fadeIn 1s ease-in forwards;
   .carousel .carousel-item {
     height: 450px; }
     .carousel .carousel-item .img-fluid {
-      width:100%; margin-left: 50px;
-      margin-right: 50px;
-  height:100%; max-width: 2000px;}
+      width:100%;margin: auto;
+  height:100%; max-width: 1350px;}
 
 #carouselButton {
   right: 0px;
