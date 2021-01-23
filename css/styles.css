@@ -45,7 +45,8 @@ body {
   text-decoration: underline;
 }
 .modal-body {
-  background-color:#ccd9ff;}
+  background-color:#ccd9ff;
+color:darkcyan;}
 
 .modal-header {
   background-color: #002699; }

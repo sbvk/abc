@@ -62,18 +62,17 @@
 </head>
 <title>Custard Apple Animations</title><link rel = "icon" href ="/icon.PNG" style="width:200px;" type = "image/x-icon"> 
 <body style="background-image: url('/1\ \(7\).jpeg');
-background-repeat: no-repeat;background-width:100%;  background-size: cover;
+background-repeat: no-repeat;width:100%;  background-size: cover; height:auto; background-position: center;
 background-attachment: fixed;">
-<nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+<nav class="navbar navbar-dark navbar-expand-sm fixed-top" >
 <div class="container">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">  
         <span class="navbar-toggler-icon"></span>
-    </button><!--<img src="icon.PNG" height="50" width="70" class=" d-none d-md-block" style="left: 0; top: 0; position: fixed;" href="#">-->
-    <a class="navbar-brand d-block d-md-none" href="#"><img src="icon.PNG" height="30" width="40" ></a><!--
-    <a class="navbar-brand" href="#"><img src="icon.PNG" height="30" width="40" ></a>-->
+    </button><a href="index.html#index"><img src="icon.PNG" height="50" width="70" class=" d-none d-md-block" style="left: 0; top: 0; position: fixed;" ></a>
+    <a class="navbar-brand d-block d-md-none" href="#"><img src="icon.PNG" height="30" width="40" ></a>
     <div class="collapse navbar-collapse" id="Navbar">
     <ul class="navbar-nav mr-auto">
-        <li class="nav-item active"><a class="nav-link"  href="index.html" ><img src="home.png" style="width: 30px;"> Home</a></li>
+       <!-- <li class="nav-item active"><a class="nav-link"  href="index.html" ><img src="home.png" style="width: 30px;"> Home</a></li>-->
         <li class="nav-item active"><a class="nav-link" href="index.html#about" ><img src="ab.png" style="width: 30px;">About Us</a></li>
         <li class="nav-item active"><a class="nav-link" href="/base" ><img src="cube.png" style="width: 30px;"> 3D Models</a></li>
         <li class="nav-item active"><a class="nav-link" href="index.html#service" ><img src="serv.png" style="width: 30px;"> Services</a></li>
@@ -172,7 +171,10 @@ background-attachment: fixed;">
                 <ol class="col-12 breadcrumb">
                 <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
                 <li class="breadcrumb-item active"><a href="/base">3d Models</a></li>
-            </ol>
+            </ol> </div> <div class="container"> 
+                <div class="row row-content" style="align-items: center;">
+            <h1>COMING SOON....</h1></div>
+             <!--
             <div class="col-3 col-sm-4"><form id="fil" method="POST" action="/filter">
                 <select id="filters" name="filters" style="max-width: 200px; overflow-x:auto; height:100px;" 
                  data-style="btn-default" class="selectpicker form-control" multiple required>
@@ -202,22 +204,7 @@ background-attachment: fixed;">
              
               <hr></div>
              <table id="myTable">  
-                 <!--
-   <tr><div class="row row-content">
-  {{#each thumb}}
-     <div class="card" id="card"><img src="data:img/fbx;base64,{{#each this}}{{this.img.base}}{{/each}}"  style="height: 40%; width:100%"><br>
-     <h5 class="card-title" id="mname" style="width: 100%; height:20%; position:absolute; margin-top:200px; overflow-y:auto; ">{{#each this}}{{this.name}}{{/each}}</h5> 
-     <a style="width: 100%; height:20%;position:absolute; margin-top:230px; ">{{#each this}}{{this.desc}}{{/each}}</a> 
-    
-     <span class="badge badge-dark" style="position:absolute; margin-top:270px;">Rs.{{#each this}}{{this.price}}{{/each}}/-</span> 
-      <p></p><a {{#each this}}href="/cart1/{{this._id}}"{{/each}} class="btn btn-info btn-sm" style="width: 80%;position:absolute; margin-top:310px;">
-          <i class="fa fa-shopping-cart"></i> Add to Cart</a> 
-          <form method="post" {{#each this}}action="/wish/{{this._id}}"{{/each}}>
-          <button class="btn btn-info btn-sm" style="width: 80%; position:absolute; margin-top:350px;"  id="btnt" type="submit"
-          onClick="this.form.submit();" >
-          <i class="fa fa-heart" style="color: red;"></i> &nbsp;Wishlist</button></form></p>  
-            </div>
-    {{/each}}</div></tr> --> <script src="script.js"></script>
+                  <script src="script.js"></script>
      <tr><div class="row row-content">
   {{#each thumb}}
      <div class="card" id="card">
@@ -235,7 +222,7 @@ background-attachment: fixed;">
           <i class="fa fa-heart" style="color: red;"></i> &nbsp;Wishlist</button></form></p>  
             </div>
     {{/each}}</div></tr>
-</table> <div id="mySidenav" class="sidenav">
+</table>--> <div id="mySidenav" class="sidenav">
     <a class="btn btn-social-icon btn-google" id="google" href="https://www.google.com/search?sxsrf=ALeKk016b5DbllkFu8NeFCg0IswOywvj9Q%3A1609402446207&ei=TojtX_aADKCb4-EPnOWn2Ac&q=custard+apple+animation+pvt+ltd&oq=Cusra&gs_lcp=CgZwc3ktYWIQAxgAMgcIIxCxAhAnMgoILhCxAxDJAxBDMgcILhCxAxBDMgcIABCxAxBDMgQIABBDMgQIABAKMgcIABCxAxAKMgcIABCxAxBDMgcIABCxAxAKMgcIABCxAxAKOgQIIxAnOgcIABDJAxBDOgUIABCxAzoCCAA6CAguELEDEIMBOgUIABCRAjoECC4QQzoICAAQsQMQgwE6BQguELEDOg4ILhDHARCvARDJAxCTAjoCCC46BggAEAoQQzoKCC4QsQMQgwEQCjoECC4QClCphAdYnooHYI6TB2gAcAF4AIABxwGIAaMGkgEDMC41mAEAoAEBqgEHZ3dzLXdpesABAQ&sclient=psy-ab"><i class="fa fa-google fa-lg "></i></a>
             <a class="btn btn-social-icon btn-facebook" id="fb" href="https://www.facebook.com/Custard-Apple-Animation-Pvt-Ltd-112928893410891"><i class="fa fa-facebook fa-lg"></i></a>
             <a class="btn btn-social-icon btn-linkedin" id="lin" href="https://www.linkedin.com/company/67337097/admin/"><i class="fa fa-linkedin fa-lg"></i></a>
