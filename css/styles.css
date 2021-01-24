@@ -289,8 +289,7 @@ animation: fadeIn 1s ease-in forwards;
       height: 200px; 
     }
     .carousel .carousel-item .img-fluid {
-      width:100%; margin-left: 10px;
-      margin-right: 10px;}
+      width:100%; }
   }
   
   /* Style the counter cards */
